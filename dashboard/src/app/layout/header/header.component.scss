@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: rgb(210 5 103);
+    padding: .5em 1em;
+
+    &__logo {
+        width: 80px;
+        border-radius: 10px;
+    }
+
+    &__menu {
+        display: block;
+        font-size: 2.5rem;
+        color: rgb(235 235 235);
+    }
+}
