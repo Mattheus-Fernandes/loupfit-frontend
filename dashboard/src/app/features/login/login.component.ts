@@ -1,0 +1,41 @@
+import { Component } from '@angular/core';
+import { LoginService } from './services/login.service';
+import { TokenService } from 'src/app/core/services/token.service';
+import { take } from 'rxjs';
+import { HttpErrorResponse } from 'src/app/core/models/types/http-error-response.type';
+import { LoginResponse } from './models/types/login-response copy';
+import { PreviousPageService } from 'src/app/core/services/previous-page.service';
+
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+export class LoginComponent {
+
+  public httpError!: HttpErrorResponse
+
+  constructor(
+    private _loginService: LoginService,
+    private _tokenService: TokenService,
+    private _previousPageService: PreviousPageService
+  ){}
+
+  pageBack() {
+    this._previousPageService.previousPage()
+  }
+
+  onLogin(payload: LoginResponse) {
+    this._loginService.onLogin(payload)
+    .pipe(take(1))
+    .subscribe({
+      next: (value: LoginResponse) => {
+        this._tokenService.setToken(value.token)
+      },
+      error: (err: HttpErrorResponse) => {
+        this.httpError = err
+      }
+    })
+  }
+}

@@ -1,0 +1,148 @@
+.login {
+    height: 100dvh;
+    width: 100%;
+
+    background-color: var(--bg-secondary);
+
+    display: flex;
+    flex-direction: column;
+
+    app-login-form {
+        flex: 1;
+        width: 100%;
+        border-right: none;
+        z-index: 2;
+    }
+
+    &__container {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    &__button {
+        display: none;
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column-reverse;
+        width: fit-content;
+        height: fit-content;
+        box-shadow: 5px 8px 18px -6px black;
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 40%;
+        width: 100%;
+        background-color: var(--bg-overlay);
+        z-index: 1;
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 40%;
+        width: 100%;
+        object-fit: cover;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+@media (min-width: 768px) {
+    .login {
+
+        &__container {
+            width: 70%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-6);
+        }
+
+        &__button {
+            display: block;
+            align-self: flex-start;
+            font-size: var(--font-size-2xl);
+            background-color: #dcdcdc;
+            color: var(--color-accent);
+            padding: var(--spacing-1);
+            user-select: none;
+        }
+
+        &__main {
+            width: 100%;
+            height: fit-content;
+            flex-direction: row;
+            overflow: hidden;
+            position: relative;
+        }
+
+        app-login-form {
+            width: 50%;
+        }
+
+        &__image {
+            position: static;
+            width: 50%;
+            height: 100%;
+        }
+
+        &__overlay {
+            left: auto;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            border-left: 4px solid var(--bg-accent);
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .login {
+
+        &__container {
+            width: 50%;
+            max-width: 600px;
+        }
+
+        &__button {
+            cursor: pointer;
+        }
+
+        &__main {
+            width: 100%;
+            height: 55%;
+            flex-direction: row;
+            overflow: hidden;
+            position: relative;
+        }
+
+        app-login-form {
+            width: 50%;
+        }
+
+        &__image {
+            position: static;
+            width: 50%;
+            height: 100%;
+        }
+
+        &__overlay {
+            left: auto;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            border-left: 4px solid var(--bg-accent);
+        }
+    }
+}
