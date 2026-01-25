@@ -5,6 +5,7 @@ import { take } from 'rxjs';
 import { HttpErrorResponse } from 'src/app/core/models/types/http-error-response.type';
 import { LoginResponse } from './models/types/login-response copy';
 import { PreviousPageService } from 'src/app/core/services/previous-page.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class LoginComponent {
   constructor(
     private _loginService: LoginService,
     private _tokenService: TokenService,
-    private _previousPageService: PreviousPageService
+    private _previousPageService: PreviousPageService,
+    private _router: Router
   ){}
 
   pageBack() {
@@ -31,7 +33,14 @@ export class LoginComponent {
     .pipe(take(1))
     .subscribe({
       next: (value: LoginResponse) => {
+
         this._tokenService.setToken(value.token)
+
+        const HAS_TOKEN = this._tokenService.hasToken()
+
+        if(HAS_TOKEN) {
+          this._router.navigate(["/dashboard"])
+        }
       },
       error: (err: HttpErrorResponse) => {
         this.httpError = err

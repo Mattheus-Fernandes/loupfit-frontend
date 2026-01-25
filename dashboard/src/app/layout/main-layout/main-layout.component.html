@@ -1,0 +1,9 @@
+<section class="main-layout">
+    <app-header [menuOpen]="isMenuOpen" (activeMenu)="activeMenu()"></app-header>
+    <main class="main-layout__body" (click)="inactiveMenu()">
+        <app-side-bar [menuOpen]="isMenuOpen"></app-side-bar>
+        <div class="main-layout__content">
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+</section>

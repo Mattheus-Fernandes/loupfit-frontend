@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  @Input() menuOpen: boolean = false
+  @Output() activeMenu = new EventEmitter<void>();
 
+  btnMenu() {
+    this.activeMenu.emit()
+  }
+
+  get icon(): string {
+    return this.menuOpen == true ? "close" : "menu"
+  }
 }
