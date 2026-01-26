@@ -18,12 +18,3 @@
         height: 100%;
     }
 }
-
-@media (min-width: 1024px) {
-    .main-layout {
-
-        app-side-bar {
-            position: static;
-        }
-    }
-}
