@@ -4,7 +4,15 @@ import { MainLayoutComponent } from './main-layout.component';
 
 
 const routes: Routes = [
-  { path: "", component: MainLayoutComponent }
+  
+  {
+    path: "",
+    component: MainLayoutComponent,
+    children: [
+      { path: "", redirectTo: "overview", pathMatch: "full"},
+      { path: "overview", loadChildren: () => import("../../features/overview/overview.module").then(m => m.OverviewModule) }
+    ]
+  }
 ];
 
 @NgModule({
