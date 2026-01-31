@@ -1,0 +1,16 @@
+<div class="overview-card" [class.overview-card--redirect]="redirectTo" [routerLink]="cardInfo.redirectTo">
+    <span class="material-symbols-outlined overview-card__icon">
+        {{cardInfo.icon}}
+    </span>
+    <div class="overview-card__body" *ngIf="cardInfo.value; else loading">
+        <p class="overview-card__title">{{cardInfo.title}}</p>
+        <p class="overview-card__value" *ngIf="!cardInfo.currencyCode; else currencyCode">{{cardInfo.value | number}}
+        </p>
+        <ng-template #currencyCode>
+            <p class="overview-card__value">{{cardInfo.value | currency}}</p>
+        </ng-template>
+    </div>
+    <ng-template #loading>
+        <app-spinner></app-spinner>
+    </ng-template>
+</div>

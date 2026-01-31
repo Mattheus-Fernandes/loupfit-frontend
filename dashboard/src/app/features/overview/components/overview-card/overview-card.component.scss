@@ -1,0 +1,50 @@
+.overview-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-5);
+    padding: var(--spacing-3);
+    font-family: var(--font-primary);
+    background-color: #dcdcdc;
+    color: var(--color-neutral);
+    overflow: hidden;
+    box-shadow: 4px 5px 5px 0px var(--shadow-primary);
+    transition: all .75s ease;
+
+    &--redirect {
+        cursor: pointer;    
+    }
+
+    &:hover {
+        background-color: rgb(187, 187, 187);;
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        top: -18px;
+        left: -18px;
+        width: 35px;
+        height: 35px;
+        background-color: var(--bg-accent);
+        transform: rotate(45deg);
+    }
+
+    &__icon {
+        font-size: var(--font-size-2xl);
+    }
+
+    &__title {
+        font-size: var(--font-size-ld);
+        text-align: center;
+    }
+
+    &__value {
+        font-size: var(--font-size-xl);
+        text-align: center;
+    }
+}

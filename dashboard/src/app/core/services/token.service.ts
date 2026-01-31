@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 const TOKEN_KEY = "auth_token"
@@ -13,6 +14,12 @@ export class TokenService {
 
   getToken(): string | null {
     return localStorage.getItem(TOKEN_KEY)
+  }
+
+  getHeaders(): HttpHeaders {
+    return new HttpHeaders({
+      Authorization: `Bearer ${this.getToken() as string}`
+    })
   }
 
   removeToken(): void {
