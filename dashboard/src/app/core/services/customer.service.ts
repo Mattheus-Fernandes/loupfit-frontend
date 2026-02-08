@@ -9,7 +9,7 @@ import { TokenService } from './token.service';
 })
 export class CustomerService {
 
-  private _url = "http://localhost:8001/v1/customers"
+  private _url = "http://localhost:8001/v1/customer"
   private customers$!: Observable<CustomersResponse>
 
   constructor(

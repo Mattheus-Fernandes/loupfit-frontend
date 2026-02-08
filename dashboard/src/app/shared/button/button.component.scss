@@ -1,0 +1,36 @@
+.button {
+    width: 100%;
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-3);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-primary);
+    letter-spacing: .5px;
+    box-shadow: 1px 3px 4px 0px var(--shadow-primary);
+
+    &--primary {
+        background-color: var(--bg-accent);
+        color: var(--color-secondary);
+    }
+
+    &--secondary {
+        background-color: var(--bg-neutral);
+        color: var(--color-secondary);
+    }
+}
+
+@media(min-width: 768px) {
+    .button {
+        font-size: var(--font-size-md);
+        padding: var(--spacing-2);
+    }
+}
+
+@media(min-width: 1024px) {
+    .button {
+        cursor: pointer;
+        font-size: var(--font-size-sm);
+    }
+}

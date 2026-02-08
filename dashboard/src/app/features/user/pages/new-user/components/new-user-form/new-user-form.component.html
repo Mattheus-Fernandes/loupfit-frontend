@@ -1,0 +1,21 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <p class="form__text">Complete as informações abaixo para adicionar um novo usuário.</p>
+        <div class="form__fields">
+            <ng-container *ngIf="error.hasError">
+                <app-error-msg [msg]="error.msg"></app-error-msg>
+            </ng-container>
+            <ng-container *ngIf="success">
+                <app-success-msg msg="Usuário registrado com sucesso"></app-success-msg>
+            </ng-container>
+            <app-input [input]="nameInput" [control]="name" [error]="error.hasError || (name.hasError('required') && name.touched)"></app-input>
+            <app-input [input]="lastnameInput" [control]="lastname" [error]="error.hasError || (lastname.hasError('required') && lastname.touched)"></app-input>
+            <app-input [input]="usernameInput" [control]="username" [error]="error.hasError || (username.hasError('required') && username.touched)"></app-input>
+            <app-input [input]="passwordInput" [control]="password" [error]="error.hasError || (password.hasError('required') && password.touched)"></app-input>
+            <p class="form__label">Permissão de acesso ao dashboard</p>
+            <app-select [optionsList]="roleList" [control]="role" [error]="error.hasError || (role.hasError('required') && role.touched)"></app-select>
+        </div>
+        <div class="form__buttons">
+            <app-button text="Cancelar" type="button"></app-button>
+            <app-button variant="primary" text="Salvar" type="submit"></app-button>
+        </div>
+</form>

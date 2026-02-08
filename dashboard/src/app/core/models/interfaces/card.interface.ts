@@ -1,4 +1,4 @@
-export interface IOverviewCard {
+export interface ICard {
     icon: string,
     title: string,
     value?: number

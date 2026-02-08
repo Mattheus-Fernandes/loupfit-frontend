@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MainLayoutComponent } from './main-layout.component';
 import { LayoutModule } from '../layout.module';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { RedirectComponent } from './components/redirect/redirect.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 ],
   declarations: [
     MainLayoutComponent,
-    SideBarComponent
+    SideBarComponent,
+    RedirectComponent
   ],
 })
 export class MainLayoutModule {}

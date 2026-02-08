@@ -1,0 +1,28 @@
+.new-user {
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+
+    app-new-user-form {
+        flex: 1;
+    }
+}
+
+@media(min-width: 768px) {
+    .new-user {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+
+@media(min-width: 1024px) {
+    .new-user {
+        width: 650px;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+}

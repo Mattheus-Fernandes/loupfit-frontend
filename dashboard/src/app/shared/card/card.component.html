@@ -1,0 +1,16 @@
+<div class="card" [class.card--redirect]="redirectTo" [routerLink]="card.redirectTo">
+    <span class="material-symbols-outlined card__icon">
+        {{card.icon}}
+    </span>
+    <div class="card__body">
+        <p class="card__title">{{card.title}}</p>
+        <p class="card__value" *ngIf="!card.currencyCode; else currencyCode">{{card.value | number}}
+        </p>
+        <ng-template #currencyCode>
+            <p class="card__value">{{card.value | currency}}</p>
+        </ng-template>
+    </div>
+    <ng-template #loading>
+        <app-spinner></app-spinner>
+    </ng-template>
+</div>

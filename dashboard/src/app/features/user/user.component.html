@@ -1,0 +1,10 @@
+<section class="user">
+   <app-section-title sectionTitle="Ações usuário"></app-section-title>
+   <div class="user__cards">
+      <ng-container *ngFor="let card of cardList">
+         <div>
+            <app-card [card]="card"></app-card>
+         </div>
+      </ng-container>
+   </div>
+</section>

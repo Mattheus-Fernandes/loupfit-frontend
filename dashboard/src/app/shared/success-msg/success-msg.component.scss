@@ -1,0 +1,16 @@
+.success-msg {
+    font-size: var(--font-size-sm);
+    font-family: var(--font-primary);
+    letter-spacing: .5px;
+    color: var(--color-success);
+    animation: fadeIn .5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
