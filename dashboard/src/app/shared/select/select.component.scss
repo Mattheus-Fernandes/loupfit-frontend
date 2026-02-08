@@ -1,0 +1,26 @@
+.select {
+    width: 100%;
+    font-size: var(--font-size-sm);
+    letter-spacing: .5px;
+    padding: var(--spacing-2);
+    color: var(--color-neutral);
+    outline: none;
+    border: 1px solid var(--color-neutral);
+    border-radius: var(--border-radius);
+    transition: all .75s ease-in-out;
+
+    &:focus {
+        border: 1px solid var(--color-accent);
+    }
+
+    &--error {
+        color: var(--color-error);
+        border-color: var(--color-error);
+    }  
+}
+
+@media(min-width: 768px) {
+    .select {
+        font-size: var(--font-size-md);
+    }
+}

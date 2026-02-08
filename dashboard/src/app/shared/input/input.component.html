@@ -1,0 +1,19 @@
+<div class="input">
+    <span class="material-symbols-outlined input__icon" [class.input__icon--error]="error">
+        {{input.icon}}
+    </span>
+    <input 
+        [type]="showPassword ? 'text' : input.type" 
+        [name]="input.name" 
+        class="input__input" 
+        [class.input__input--error]="error" 
+        [placeholder]="input.placeholder" 
+        [formControl]="control"
+        autocomplete="off"
+    />  
+    <ng-container *ngIf="input.suffix">
+        <span class="material-symbols-outlined input__suffix" (click)="changeSuffix()">
+            {{ showPassword ? 'visibility_off' : 'visibility' }}
+        </span>
+    </ng-container>
+</div>

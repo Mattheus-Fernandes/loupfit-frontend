@@ -21,4 +21,4 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginInputComponent
   ],
 })
-export class InitialModule { }
+export class LoginModule { }
