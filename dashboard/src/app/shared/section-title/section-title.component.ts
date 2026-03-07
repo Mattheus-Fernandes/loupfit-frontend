@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class SectionTitleComponent {
   @Input() sectionTitle: string = ""
+  @Input() sectionText: string = ""
 }
