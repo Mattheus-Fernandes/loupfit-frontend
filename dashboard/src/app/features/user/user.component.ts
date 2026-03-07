@@ -9,12 +9,12 @@ import { ICard } from 'src/app/core/models/interfaces/card.interface';
 export class UserComponent {
 
   protected cardList: ICard[] = [
-    { icon: "add", title: "Novo usuário", redirectTo: "new",currencyCode: false },
-    { icon: "data_loss_prevention", title: "Usuários", currencyCode: false },
-    { icon: "person", title: "Buscar usuário", currencyCode: false },
-    { icon: "person_edit", title: "Editar usuário", currencyCode: false },
-    { icon: "edit", title: "Atualizar permissão", currencyCode: false },
-    { icon: "edit", title: "Atualizar username", currencyCode: false },
-    { icon: "delete", title: "Excluir usuário", currencyCode: false }
+    { icon: "add", title: "Novo usuário", text: "Criar um novo usuário", redirectTo: "new", currencyCode: false },
+    { icon: "data_loss_prevention", title: "Usuários", text: "Ver todos os usuários", currencyCode: false },
+    { icon: "person", title: "Buscar usuário", text: "Localizar usuários específicos", currencyCode: false },
+    { icon: "person_edit", title: "Editar usuário", text: "Modificar dados do usuário", currencyCode: false },
+    { icon: "security", title: "Atualizar permissão", text: "Alterar nível de acesso", currencyCode: false },
+    { icon: "alternate_email", title: "Atualizar username", text: "Modificar nome de usuário", currencyCode: false },
+    { icon: "delete", title: "Excluir usuário", text: "Remover usuário do sistema", currencyCode: false }
   ]
 }
