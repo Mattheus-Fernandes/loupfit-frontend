@@ -5,12 +5,12 @@
     padding: var(--spacing-2);
     color: var(--color-neutral);
     outline: none;
-    border: 1px solid var(--color-neutral);
+    border: 1.5px solid var(--color-neutral);
     border-radius: var(--border-radius);
     transition: all .75s ease-in-out;
 
     &:focus {
-        border: 1px solid var(--color-accent);
+        border: 1.5px solid var(--color-accent);
     }
 
     &--error {
