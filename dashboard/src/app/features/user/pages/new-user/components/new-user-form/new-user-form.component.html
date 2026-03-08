@@ -1,12 +1,8 @@
 <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <app-section-title sectionTitle="Novo usuário" sectionText="Complete as informações abaixo para adicionar um novo usuário."></app-section-title>
-    <p *ngIf="error.hasError" class="form__error">
-        {{ error.msg }}
-    </p>
 
-    <p *ngIf="success && !error.hasError" class="form__success">
-        Usuário cadastrado com sucesso
-    </p>
+        <app-error-msg *ngIf="error.hasError" [msg]="error.msg"></app-error-msg>
+        <app-success-msg *ngIf="success && !error.hasError"  msg="Usuário cadastrado com sucesso"></app-success-msg>
     <div class="form__fields">
         <div class="form__column--left">
             <app-input [input]="nameInput" [control]="name" [error]="name.hasError('required') && name.touched"></app-input>
