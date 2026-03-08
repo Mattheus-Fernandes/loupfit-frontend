@@ -10,7 +10,7 @@ import { IUser } from '../models/interfaces/user.interface';
 })
 export class UserService {
 
-  private _url = "http://localhost:8001/v1/user"
+  private _url = "http://localhost:8001/v1/users"
 
   private users$!: Observable<UsersResponse>
 
