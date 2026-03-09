@@ -10,9 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SelectComponent } from './select/select.component';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { SuccessMsgComponent } from './success-msg/success-msg.component';
-
-
-
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 
 @NgModule({
@@ -30,6 +28,7 @@ import { SuccessMsgComponent } from './success-msg/success-msg.component';
     SelectComponent,
     ErrorMsgComponent,
     SuccessMsgComponent,
+    SearchBarComponent,
   ],
   exports: [
     SectionTitleComponent, 
@@ -39,7 +38,8 @@ import { SuccessMsgComponent } from './success-msg/success-msg.component';
     InputComponent,
     SelectComponent,
     ErrorMsgComponent,
-    SuccessMsgComponent
+    SuccessMsgComponent,
+    SearchBarComponent
   ]
 })
 export class SharedModule {}

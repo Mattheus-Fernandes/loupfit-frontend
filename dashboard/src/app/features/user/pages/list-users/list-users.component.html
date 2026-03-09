@@ -1,0 +1,16 @@
+<section class="list-users">
+    <app-section-title sectionTitle="Usuários Cadastrados" sectionText="Lista de todos os usuários registrados no sistema"></app-section-title>
+    
+    <ng-container >
+        <div *ngIf="usersList.length > 0; else loading" class="list-users__content">
+            <app-search-bar (searchValue)="onClick($event)"></app-search-bar>
+            <div class="list-users__table-container">
+                <app-list-users-table [usersList]="usersListFiltered"></app-list-users-table>
+            </div>
+        </div>
+    </ng-container> 
+
+    <ng-template #loading>
+        <app-spinner></app-spinner>
+    </ng-template>
+</section>
