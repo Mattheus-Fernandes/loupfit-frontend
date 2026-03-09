@@ -1,0 +1,18 @@
+<div class="table">
+    <div class="table__header">
+        <p class="table__title">Nome</p>
+        <p class="table__title">Sobrenome</p>
+        <p class="table__title">Usuário</p>
+        <p class="table__title">Acesso</p>
+    </div>
+    <div class="table__body">
+        <ng-container *ngFor="let user of usersList">
+            <div class="table__row">
+                <p class="table__text">{{user.name}}</p>
+                <p class="table__text">{{user.lastname}}</p>
+                <p class="table__text">{{user.username}}</p>
+                <p class="table__text" [class]="roleColor(user.role)">{{user.role | role}}</p>
+            </div>
+        </ng-container>
+    </div>
+</div>

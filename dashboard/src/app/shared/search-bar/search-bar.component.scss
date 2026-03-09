@@ -1,0 +1,11 @@
+.search {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    gap: var(--spacing-4);
+
+    app-input {
+        width: 100%;
+    }
+}
+

@@ -1,0 +1,124 @@
+.table {
+    font-family: var(--font-primary);
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size-md);
+
+
+    &__header {
+        margin-bottom: var(--spacing-4);
+        position: sticky;
+        top: -1px;
+        z-index: 1;
+        background-color: var(--bg-form);
+        padding-bottom: var(--spacing-5);
+        border-bottom: 1px solid var(--bg-hr);
+        overflow: hidden;
+
+
+        :nth-child(3) {
+            display: none;
+        }
+    }
+
+    &__header,
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+    }
+
+    &__title {
+        color: var(--color-neutral);
+        font-weight: 400;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4);
+        padding: var(--spacing-1) 0;
+    }
+
+    &__row {
+        color: var(--color-neutral);
+
+        :nth-child(3) {
+            display: none;
+        }
+    }
+
+    &__text {
+        width: fit-content;
+
+        &--owner {
+            background-color: var(--bg-accent);
+            color: #FFF;
+            padding: var(--spacing-1) var(--spacing-2);
+            border-radius: var(--border-radius);
+        }
+
+        &--admin {
+            background-color: #028d02b9;
+            color: #FFF;
+            padding: var(--spacing-1);
+            border-radius: var(--border-radius);
+        }
+
+        &--editor {
+            background-color: #0000ffaa;
+            color: #FFF;
+            padding: var(--spacing-1);
+            border-radius: var(--border-radius);
+        }
+
+        &--viewer {
+            background-color: rgb(242, 140, 45);
+            color: #FFF;
+            padding: var(--spacing-1);
+            border-radius: var(--border-radius);
+        }
+    }
+}
+
+@media(min-width: 768px) {
+    .table {
+
+        &__header,
+        &__row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            :nth-child(3) {
+                display: block;
+            }
+        }
+    }
+
+
+}
+
+
+@media(min-width: 1024px) {
+    .table {
+        font-size: var(--font-size-sm);
+
+        &__header {
+            padding-bottom: var(--spacing-2);
+        }
+
+        &__row {
+            padding: 3px;
+            border-radius: var(--border-radius);
+
+            &:hover {
+                cursor: pointer;
+                background-color: var(--bg-hover-neutral);
+            }
+        }
+
+        &__body {
+            gap: var(--spacing-2);
+        }
+    }
+}

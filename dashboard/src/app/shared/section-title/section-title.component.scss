@@ -19,9 +19,9 @@
     }
 
     &__line {
-        height: .1px;
+        height: 1px;
         width: 100%;
-        background-color: var(--bg-neutral);
+        background-color: var(--bg-hr);
     }
 }
 
@@ -36,7 +36,7 @@
 }
 
 @media(min-width: 1024px) {
-     .section {
+    .section {
 
         &__subtitle {
             font-size: var(--font-size-lg);
