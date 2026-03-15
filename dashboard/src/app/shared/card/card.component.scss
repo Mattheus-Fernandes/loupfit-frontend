@@ -42,6 +42,19 @@
     }
 }
 
+@media(min-width: 768px) {
+    .card {
+
+        &__subtitle {
+            font-size: var(--font-size-xl);
+        }
+
+        &__text {
+            font-size: var(--font-size-lg);
+        }
+    }
+}
+
 @media(min-width: 1024px) {
     .card {
         cursor: pointer;
@@ -52,17 +65,16 @@
             transform: translateY(-8px);
         }
 
-
         &__icon {
-            font-size: var(--font-size-xl);
+            font-size: var(--font-size-2xl);
         }
 
         &__subtitle {
-            font-size: var(--font-size-md);
+            font-size: var(--font-size-lg);
         }
 
         &__text {
-            font-size: var(--font-size-sm);
+            font-size: var(--font-size-md);
         }
     }
 }

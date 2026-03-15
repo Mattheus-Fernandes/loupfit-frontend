@@ -48,6 +48,7 @@
 
 @media(min-width: 768px) {
      .form {
+        padding: var(--spacing-6);
 
         &__column--left,
         &__column--right {
@@ -60,11 +61,12 @@
         }
 
         &__permissition {
-            width: 61.5%;
+            width: 62.5%;
         }
 
         &__permissition-title {
-            font-size: var(--font-size-sm);
+            letter-spacing: 1px;
+            font-size: var(--font-size-lg);
         }
 
         &__buttons {
@@ -96,12 +98,12 @@
         }
 
         &__permissition-title {
-            font-size: var(--font-size-sm);
+            font-size: var(--font-size-md);
         }
 
         &__buttons {
             align-items: center;
-            width: 61.5%;
+            width: 30%;
 
             app-button {
                 width: 61.5%;

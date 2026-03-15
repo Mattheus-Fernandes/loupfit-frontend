@@ -5,9 +5,10 @@
     border: none;
     border-radius: var(--border-radius);
     padding: var(--spacing-3);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
     font-family: var(--font-primary);
-    letter-spacing: .5px;
+    font-weight: 500;
+    letter-spacing: 1px;
     box-shadow: 1px 3px 4px 0px var(--shadow-primary);
 
     &--primary {
@@ -23,7 +24,7 @@
 
 @media(min-width: 768px) {
     .button {
-        font-size: var(--font-size-md);
+        font-size: var(--font-size-lg);
         padding: var(--spacing-2);
     }
 }
@@ -31,6 +32,6 @@
 @media(min-width: 1024px) {
     .button {
         cursor: pointer;
-        font-size: var(--font-size-sm);
+        font-size: var(--font-size-md);
     }
 }

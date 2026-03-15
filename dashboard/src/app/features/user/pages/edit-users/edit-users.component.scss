@@ -41,8 +41,12 @@
     .edit-users {
         padding: var(--spacing-6);
 
+        &__workspace {
+            padding: var(--spacing-6);
+        }
+
         app-search-bar {
-            width: 50%;
+            width: 60%;
         }
     }
 }
@@ -50,7 +54,7 @@
 @media(min-width: 1024px) {
     .edit-users {
         app-search-bar {
-            width: 30%;
+            width: 50%;
         }
     }
 }

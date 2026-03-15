@@ -1,5 +1,5 @@
 .error-msg {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
     font-family: var(--font-primary);
     letter-spacing: .5px;
     color: var(--color-error);
@@ -10,7 +10,20 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
+    }
+}
+
+@media(min-width: 768px) {
+    .error-msg {
+        font-size: var(--font-size-lg);
+    }
+}
+
+@media(min-width: 1024px) {
+    .error-msg {
+        font-size: var(--font-size-md);
     }
 }

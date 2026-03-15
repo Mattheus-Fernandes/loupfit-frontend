@@ -22,7 +22,7 @@
     &__row {
         display: grid;
         align-items: center;
-        grid-template-columns: 20px 1fr 1fr;
+        grid-template-columns: 25px 1fr 1fr;
     }
 
     &__body {
@@ -40,6 +40,10 @@
 
     &__th {
         font-weight: 500;
+
+        &:first-child {
+            padding-left: 25px;
+        }
     }
 
     &__th,
@@ -51,24 +55,42 @@
 
 @media(min-width: 768px) {
     .table {
-
+        
         &__thead {
             padding-left: 20px;
+        }
+
+        &__row {
+            grid-template-columns: 35px 1fr 1fr;
+        }
+
+        &__th {
+            
+            &:first-child {
+                padding-left: 15px;
+            }
         }
 
         &__th,
         &__td {
             font-size: var(--font-size-lg);
         }
+
+
     }
 }
 
 @media(min-width: 1024px) {
     .table {
 
+        &__body {
+            gap: var(--spacing-3);
+        }
+
         &__row {
             padding: 3px 10px;
             border-radius: var(--border-radius);
+            transition: background-color .2s ease-in-out;
 
             &:hover {
                 cursor: pointer;

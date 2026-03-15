@@ -36,8 +36,13 @@
 
 @media(min-width: 768px) {
     .list-users {
+
+        &__content {
+            padding: var(--spacing-7);
+        }
+
         app-search-bar {
-            width: 50%;
+            width: 60%;
         }
     }
 }
@@ -45,7 +50,7 @@
 @media(min-width: 1024px) {
     .list-users {
         app-search-bar {
-            width: 30%;
+            width: 50%;
         }
     }
 }

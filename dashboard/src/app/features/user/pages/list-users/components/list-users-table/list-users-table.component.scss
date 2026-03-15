@@ -24,13 +24,14 @@
     &__header,
     &__row {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 90px 1fr 1fr;
         align-items: center;
     }
 
     &__title {
         color: var(--color-neutral);
-        font-weight: 400;
+        font-weight: 500;
+        font-size: var(--font-size-md);
     }
 
     &__body {
@@ -61,21 +62,21 @@
         &--admin {
             background-color: #028d02b9;
             color: #FFF;
-            padding: var(--spacing-1);
+            padding: var(--spacing-1) var(--spacing-2);
             border-radius: var(--border-radius);
         }
 
         &--editor {
             background-color: #0000ffaa;
             color: #FFF;
-            padding: var(--spacing-1);
+            padding: var(--spacing-1) var(--spacing-2);
             border-radius: var(--border-radius);
         }
 
         &--viewer {
             background-color: rgb(242, 140, 45);
             color: #FFF;
-            padding: var(--spacing-1);
+            padding: var(--spacing-1) var(--spacing-2);
             border-radius: var(--border-radius);
         }
     }
@@ -87,11 +88,16 @@
         &__header,
         &__row {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 120px 150px 1fr 150px;
 
             :nth-child(3) {
                 display: block;
             }
+        }
+
+        &__title,
+        &__text {
+            font-size: var(--font-size-lg);
         }
     }
 
@@ -103,13 +109,23 @@
     .table {
         font-size: var(--font-size-sm);
 
+        &__header,
+        &__row {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
         &__header {
             padding-bottom: var(--spacing-2);
         }
 
+        &__body {
+            gap: var(--spacing-3);
+        }
+
         &__row {
-            padding: 3px;
+            padding: 0 10px;
             border-radius: var(--border-radius);
+            transition: background-color .2s ease-in-out;
 
             &:hover {
                 cursor: pointer;
@@ -117,8 +133,15 @@
             }
         }
 
-        &__body {
-            gap: var(--spacing-2);
+        &__title {
+            &:first-child {
+                padding-left: 10px;
+            }
+        }
+
+        &__title,
+        &__text {
+            font-size: var(--font-size-md);
         }
     }
 }
