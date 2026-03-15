@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, delay, shareReplay } from 'rxjs';
+import { Observable, delay, map, shareReplay } from 'rxjs';
 import { UsersResponse } from '../models/types/users-response';
 import { HttpClient } from '@angular/common/http';
 import { TokenService } from './token.service';
@@ -20,15 +20,18 @@ export class UserService {
   ) { }
 
   getAllUsers(): Observable<UsersResponse> {
-    if (!this.users$) {
-      this.users$ = this._http.get<UsersResponse>(this._url, { headers: this._tokenService.getHeaders() })
-        .pipe(delay(1000), shareReplay(1))
-    }
-
-    return this.users$
+    return this._http.get<UsersResponse>(this._url, { headers: this._tokenService.getHeaders() })
+      .pipe(
+        map(users => users.sort((a, b) => a.name.localeCompare(b.name))),
+        delay(1000)
+      )
   }
 
   registerUser(payload: IUser): Observable<IUser> {
     return this._http.post<IUser>(this._url, payload, { headers: this._tokenService.getHeaders() })
+  }
+
+  editUser(id: number, payload: IUser): Observable<IUser> {
+    return this._http.put<IUser>(`${this._url}/${id}`, payload, { headers: this._tokenService.getHeaders() })
   }
 }
