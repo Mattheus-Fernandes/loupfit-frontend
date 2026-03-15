@@ -1,0 +1,16 @@
+<div class="table">
+    <div class="table__thead">
+        <ng-container *ngFor="let th of theadList">
+            <p class="table__th">{{th}}</p>
+        </ng-container>
+    </div>
+    <div class="table__body">
+        <ng-container *ngFor="let user of usersList">
+            <div class="table__row" (click)="btnClickUser(user)">
+                <div class="table__circle"></div>
+                <p class="table__td">{{user.name}}</p>
+                <p class="table__td">{{user.lastname}}</p>
+            </div>
+        </ng-container>
+    </div>
+</div>

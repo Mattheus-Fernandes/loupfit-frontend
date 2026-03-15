@@ -11,6 +11,8 @@ import { SelectComponent } from './select/select.component';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { SuccessMsgComponent } from './success-msg/success-msg.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { ModalComponent } from './modal/modal.component';
+import { SectionComponent } from './section/section.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     ErrorMsgComponent,
     SuccessMsgComponent,
     SearchBarComponent,
+    ModalComponent,
+    SectionComponent,
   ],
   exports: [
     SectionTitleComponent, 
@@ -39,7 +43,9 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     SelectComponent,
     ErrorMsgComponent,
     SuccessMsgComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    ModalComponent,
+    SectionComponent
   ]
 })
 export class SharedModule {}
