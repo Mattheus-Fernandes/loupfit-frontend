@@ -3,13 +3,11 @@
     font-family: var(--font-primary);
 
 
-    &__subtitle {
-        font-size: var(--font-size-lg);
+    &__title {
+        font-size: var(--font-size-xl);
         letter-spacing: .5px;
         font-weight: 500;
         width: fit-content;
-        margin-bottom: var(--spacing-1);
-
     }
 
     &__text {
@@ -28,9 +26,14 @@
 @media(min-width: 768px) {
     .section {
 
+        &__title {
+            letter-spacing: 1px;
+        }
+
         &__text {
             font-weight: 400;
-            font-size: var(--font-size-md);
+            font-size: var(--font-size-lg);
+            letter-spacing: 1px;
         }
     }
 }
@@ -38,12 +41,12 @@
 @media(min-width: 1024px) {
     .section {
 
-        &__subtitle {
+        &__title {
             font-size: var(--font-size-lg);
         }
 
         &__text {
-            font-size: var(--font-size-sm);
+            font-size: var(--font-size-md);
         }
     }
 }

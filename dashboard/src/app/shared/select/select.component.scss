@@ -1,6 +1,6 @@
 .select {
     width: 100%;
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
     letter-spacing: .5px;
     padding: var(--spacing-2);
     color: var(--color-neutral);
@@ -20,6 +20,12 @@
 }
 
 @media(min-width: 768px) {
+    .select {
+        font-size: var(--font-size-lg);
+    }
+}
+
+@media(min-width: 1024px) {
     .select {
         font-size: var(--font-size-md);
     }
