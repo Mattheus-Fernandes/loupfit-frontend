@@ -1,40 +1,44 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { take } from 'rxjs';
+import { FormEditMode } from 'src/app/core/enums/form-edit-mode.enum';
 import { IErroForm } from 'src/app/core/models/interfaces/errors/error-form.interface';
 import { IUser } from 'src/app/core/models/interfaces/user.interface';
 import { UserService } from 'src/app/core/services/user.service';
+import { EditUserInput } from 'src/app/features/user/pages/edit-users/config/edit-user-inputs.config';
+import { EditFormModel } from './models/edit-form-model';
+import { EditUserForm } from './types/edit-user-form.type';
 
-import { EditUserInput } from '../../config/edit-user-inputs.config';
-import { EditFormModel } from 'src/app/shared/form-edit-user/models/edit-form-model';
-import { EditUserForm } from 'src/app/shared/form-edit-user/types/edit-user-form.type';
 
 @Component({
-  selector: 'app-edit-users-form',
-  templateUrl: './edit-users-form.component.html',
-  styleUrls: ['./edit-users-form.component.scss']
+  selector: 'app-form-edit-user',
+  templateUrl: './form-edit-user.component.html',
+  styleUrls: ['./form-edit-user.component.scss']
 })
-export class EditUsersFormComponent implements OnInit {
+export class FormEditUserComponent {
+  @Input() formTitle: string = ""
+  @Input() formText: string = ""
   @Input() user: IUser = {} as IUser
-  @Output() cancel = new EventEmitter<boolean>()
+  @Input() formMode: FormEditMode = FormEditMode.EDIT
+  @Output() closeForm = new EventEmitter<boolean>()
 
-  public form: FormGroup<EditUserForm> = EditFormModel.createForm()
-  public success: boolean = false
+  protected success: boolean = false
   protected error: IErroForm = {} as IErroForm
-
   protected inputName = EditUserInput.inputName()
   protected inputLastname = EditUserInput.inputLastname()
   protected inputUsername = EditUserInput.inputUsername()
   protected inputPassword = EditUserInput.inputPassword()
   protected roleList = EditUserInput.roleList()
 
-  constructor(
-    private _userService: UserService
-  ) { }
+  public form: FormGroup<EditUserForm> = EditFormModel.createForm()
+
+  private readonly _userService = inject(UserService)
 
   ngOnInit() {
     this.inputPassword.placeholder = "Alterar senha"
+
+    this.applyMode()
 
     this.form.patchValue({
       name: this.user.name,
@@ -44,8 +48,27 @@ export class EditUsersFormComponent implements OnInit {
     })
   }
 
-  btnCancel() {
-    this.cancel.emit(false)
+  btnCloseForm() {
+    this.closeForm.emit(false)
+  }
+
+  private applyMode() {
+    
+    if(this.formMode === FormEditMode.PERMISSION) {
+      this.name.disable()
+      this.lastname.disable()
+      this.username.disable()
+      this.password.disable()
+      this.role.enable()
+    }
+
+    if(this.formMode === FormEditMode.USERNAME) {
+      this.name.disable()
+      this.lastname.disable()
+      this.username.enable()
+      this.password.disable()
+      this.role.disable()
+    }
   }
 
   onSubmit() {

@@ -1,0 +1,19 @@
+<div class="table">
+    <div class="table__thead">
+        <ng-container *ngFor="let th of thead">
+            <p class="table__th">{{th}}</p>
+        </ng-container>
+    </div>
+    <div class="table__body">
+        <ng-container *ngFor="let user of usersList">
+            <div class="table__row" (click)="onClick(user)">
+                <p class="table__td">{{user.name}}</p>
+                <p class="table__td">
+                    {{
+                        columnKey === "role" ? (user[columnKey] | role) : user[columnKey]
+                    }}
+                </p>
+            </div>
+        </ng-container>
+    </div>
+</div>

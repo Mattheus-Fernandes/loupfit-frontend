@@ -1,0 +1,24 @@
+<section class="edit-permission">
+    <div class="edit-permission__container">
+        <app-section-title sectionTitle="Atualizar acesso" sectionText="Selecione o usuário para atualizar o acesso no dashboard"></app-section-title>
+        <ng-container *ngIf="usersList.length > 0; else loading">
+            <div class="edit-permission__workspace">
+                <app-search-bar (searchValue)="onSearch($event)"></app-search-bar>
+                <div class="edit-permission__list">
+                    <app-table-users 
+                        [thead]="thead" 
+                        [usersList]="usersListFiltered" 
+                        columnKey="role"
+                        (selectedUser)="selectedUser($event)"    
+                    ></app-table-users>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #loading>
+            <app-spinner></app-spinner>
+        </ng-template>
+    </div>
+    <app-modal *ngIf="formOpen">
+        <app-form-edit-user [formTitle]="formHeader.title" [formText]="formHeader.text" [formMode]="FormMode.PERMISSION" [user]="user" (closeForm)="closeForm($event)"></app-form-edit-user>
+    </app-modal>
+</section>

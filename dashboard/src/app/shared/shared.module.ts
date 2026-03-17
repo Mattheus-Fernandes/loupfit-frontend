@@ -12,7 +12,10 @@ import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { SuccessMsgComponent } from './success-msg/success-msg.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ModalComponent } from './modal/modal.component';
-import { SectionComponent } from './section/section.component';
+import { TableUsersComponent } from './table-users/table-users.component';
+import { RolePipe } from '../core/pipes/role.pipe';
+import { FormEditUserComponent } from './form-edit-user/form-edit-user.component';
+
 
 
 @NgModule({
@@ -32,7 +35,9 @@ import { SectionComponent } from './section/section.component';
     SuccessMsgComponent,
     SearchBarComponent,
     ModalComponent,
-    SectionComponent,
+    TableUsersComponent,
+    RolePipe,
+    FormEditUserComponent
   ],
   exports: [
     SectionTitleComponent, 
@@ -45,7 +50,9 @@ import { SectionComponent } from './section/section.component';
     SuccessMsgComponent,
     SearchBarComponent,
     ModalComponent,
-    SectionComponent
+    TableUsersComponent,
+    RolePipe,
+    FormEditUserComponent
   ]
 })
 export class SharedModule {}
