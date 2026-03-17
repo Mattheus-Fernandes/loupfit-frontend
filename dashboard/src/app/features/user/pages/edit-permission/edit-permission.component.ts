@@ -19,7 +19,6 @@ export class EditPermissionComponent implements OnInit {
   protected readonly thead = EditPermissionThead.thead()
   protected readonly FormMode = FormEditMode
 
-
   public user: IUser = {} as IUser
   public formOpen: boolean = false
   public formHeader: { title: string, text: string } = {

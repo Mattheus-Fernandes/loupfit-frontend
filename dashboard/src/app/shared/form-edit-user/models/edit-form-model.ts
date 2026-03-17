@@ -4,7 +4,7 @@ import { EditUserForm } from "../types/edit-user-form.type";
 export class EditFormModel {
   static createForm(): FormGroup<EditUserForm> {
     return new FormGroup<EditUserForm>({
-      name: new FormControl({ value: "", disabled: true }, {
+      name: new FormControl('', {
         nonNullable: true,
         validators: [Validators.required],
       }),
