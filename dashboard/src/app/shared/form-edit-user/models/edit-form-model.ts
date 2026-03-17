@@ -2,11 +2,11 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { EditUserForm } from "../types/edit-user-form.type";
 
 export class EditFormModel {
-   static createEditForm(): FormGroup<EditUserForm> {
+  static createForm(): FormGroup<EditUserForm> {
     return new FormGroup<EditUserForm>({
-      name: new FormControl('', {
+      name: new FormControl({ value: "", disabled: true }, {
         nonNullable: true,
-        validators: [Validators.required]
+        validators: [Validators.required],
       }),
       lastname: new FormControl('', {
         nonNullable: true,
