@@ -5,7 +5,12 @@
             <div class="edit-users__workspace">
                 <app-search-bar (searchValue)="onSearch($event)"></app-search-bar>
                     <div class="edit-users__list">
-                        <app-table-users [usersList]="usersListFiltered" (user)="getUser($event)"></app-table-users>
+                        <app-table-users 
+                            [thead]="thead"
+                            [usersList]="usersListFiltered"
+                            columnKey="lastname"
+                            (selectedUser)="selectedUser($event)"
+                        ></app-table-users>
                     </div>
                 </div>
        </ng-container>
@@ -15,6 +20,6 @@
     </div>
     
     <app-modal *ngIf="formOpen">
-        <app-edit-users-form [user]="user" (cancel)="formState($event)"></app-edit-users-form>
+        <app-form-edit-user [formTitle]="formHeader.title" [formText]="formHeader.text" [formMode]="formMode.EDIT" [user]="user" (closeForm)="closeForm($event)"></app-form-edit-user>
     </app-modal>
 </section>
