@@ -51,7 +51,7 @@ export class EditUsernameComponent implements OnInit{
   }
 
   closeForm(formState: boolean) {
-    this.formOpen = !formState
+    this.formOpen = formState
 
     if (!formState) {
       this.getAllUsers()
