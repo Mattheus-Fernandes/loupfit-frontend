@@ -1,0 +1,24 @@
+<section class="edit-username">
+    <div class="edit-username__container">
+        <app-section-title sectionTitle="Atualizar usuário" sectionText="Selecione para modificar o usuário"></app-section-title>
+        <ng-container *ngIf="usersList.length > 0; else loading">
+            <div class="edit-username__workspace">
+                <app-search-bar (searchValue)="onSearch($event)"></app-search-bar>
+                <div class="edit-username__list">
+                    <app-table-users 
+                        [thead]="thead" 
+                        [usersList]="usersListFiltered" 
+                        columnKey="username"
+                        (selectedUser)="selectedUser($event)"    
+                    ></app-table-users>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #loading>
+            <app-spinner></app-spinner>
+        </ng-template>
+    </div>
+    <app-modal *ngIf="formOpen">
+        <app-form-edit-user [formTitle]="formHeader.title" [formText]="formHeader.text" [formMode]="formMode.USERNAME" [user]="user" (closeForm)="closeForm($event)"></app-form-edit-user>
+    </app-modal>
+</section>

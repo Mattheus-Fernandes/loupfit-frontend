@@ -3,7 +3,7 @@ import { UsersResponse } from 'src/app/core/models/types/users-response';
 import { UserService } from 'src/app/core/services/user.service';
 import { EditPermissionThead } from './config/edit-permission-thead.config';
 import { IUser } from 'src/app/core/models/interfaces/user.interface';
-import { FormEditMode } from 'src/app/core/enums/form-edit-mode.enum';
+import { FormEditMode } from 'src/app/core/models/enums/form-edit-mode.enum';
 
 @Component({
   selector: 'app-edit-permission',

@@ -2,7 +2,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { take } from 'rxjs';
-import { FormEditMode } from 'src/app/core/enums/form-edit-mode.enum';
+import { FormEditMode } from 'src/app/core/models/enums/form-edit-mode.enum';
+
 import { IErroForm } from 'src/app/core/models/interfaces/errors/error-form.interface';
 import { IUser } from 'src/app/core/models/interfaces/user.interface';
 import { UserService } from 'src/app/core/services/user.service';
@@ -65,7 +66,7 @@ export class FormEditUserComponent {
     if(this.formMode === FormEditMode.USERNAME) {
       this.name.disable()
       this.lastname.disable()
-      this.username.enable()
+      this.username.enable
       this.password.disable()
       this.role.disable()
     }

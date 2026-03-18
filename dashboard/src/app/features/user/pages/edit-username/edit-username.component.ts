@@ -1,29 +1,30 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { FormEditMode } from 'src/app/core/models/enums/form-edit-mode.enum';
 import { IUser } from 'src/app/core/models/interfaces/user.interface';
 import { UsersResponse } from 'src/app/core/models/types/users-response';
 import { UserService } from 'src/app/core/services/user.service';
-import { EditUserThead } from './config/edit-user-thead.config';
-import { FormEditMode } from 'src/app/core/models/enums/form-edit-mode.enum';
+import { EditUsernameThead } from './config/edit-username-thead.config';
+import { IFormEditSubmitted } from 'src/app/core/models/interfaces/form-edit-submitted.interface';
 
 @Component({
-  selector: 'app-edit-users',
-  templateUrl: './edit-users.component.html',
-  styleUrls: ['./edit-users.component.scss']
+  selector: 'app-edit-username',
+  templateUrl: './edit-username.component.html',
+  styleUrls: ['./edit-username.component.scss']
 })
-export class EditUsersComponent implements OnInit {
+export class EditUsernameComponent implements OnInit{
 
   private readonly _userService = inject(UserService)
 
   protected usersList: UsersResponse = []
   protected usersListFiltered: UsersResponse = []
-  protected user: IUser = {} as IUser
-  protected formOpen: boolean = false
-  protected readonly thead = EditUserThead.thead()
+  protected readonly thead = EditUsernameThead.thead()
   protected readonly formMode = FormEditMode
 
+  public user: IUser = {} as IUser
+  public formOpen: boolean = false
   public formHeader: { title: string, text: string } = {
     title: "Usuário selecionado",
-    text: "Atualize a permissão do usuário"
+    text: "Atualize o usuário de acesso"
   }
 
   ngOnInit() {
@@ -49,11 +50,12 @@ export class EditUsersComponent implements OnInit {
     this.usersListFiltered = this.usersList.filter((res: IUser) => res.name.toLowerCase().includes(value.toLowerCase()))
   }
 
-  closeForm(state: boolean) {
-    this.formOpen = state
+  closeForm(formState: boolean) {
+    this.formOpen = !formState
 
-    if (!state) {
+    if (!formState) {
       this.getAllUsers()
     }
   }
+
 }

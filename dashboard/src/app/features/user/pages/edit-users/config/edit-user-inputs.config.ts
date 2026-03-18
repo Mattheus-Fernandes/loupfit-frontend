@@ -1,4 +1,4 @@
-import { UserRole } from "src/app/core/enums/user-role.enum";
+import { UserRole } from "src/app/core/models/enums/user-role.enum";
 import { IInput } from "src/app/core/models/interfaces/input.interface";
 import { RoleList } from "../../new-user/models/types/role-list.type";
 
