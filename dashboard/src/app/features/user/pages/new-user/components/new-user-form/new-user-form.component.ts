@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { RoleList } from '../../models/types/role-list.type';
-import { UserRole } from 'src/app/core/enums/user-role.enum';
+import { UserRole } from 'src/app/core/models/enums/user-role.enum';
 import { IInput } from 'src/app/core/models/interfaces/input.interface';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { IErroForm } from 'src/app/core/models/interfaces/errors/error-form.interface';
