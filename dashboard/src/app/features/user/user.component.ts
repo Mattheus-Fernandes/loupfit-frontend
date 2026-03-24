@@ -14,6 +14,6 @@ export class UserComponent {
     { icon: "person_edit", title: "Editar usuário", text: "Modificar dados do usuário", redirectTo: "edit", currencyCode: false },
     { icon: "security", title: "Atualizar permissão", text: "Alterar nível de acesso", redirectTo: "edit-permission", currencyCode: false },
     { icon: "alternate_email", title: "Atualizar username", text: "Modificar nome de usuário", redirectTo: "edit-username", currencyCode: false },
-    { icon: "delete", title: "Excluir usuário", text: "Remover usuário do sistema", currencyCode: false }
+    { icon: "delete", title: "Excluir usuário", text: "Remover usuário do sistema", redirectTo: "delete",currencyCode: false }
   ]
 }
