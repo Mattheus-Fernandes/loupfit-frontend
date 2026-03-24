@@ -8,7 +8,6 @@
 
     &__thead {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
         position: sticky;
         top: -2px;
         left: 0;
@@ -20,7 +19,6 @@
 
     &__row {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
         align-items: center;
     }
 
@@ -38,6 +36,39 @@
     &__td {
         font-size: var(--font-size-md);
         letter-spacing: 1px;
+    }
+
+    &__td {
+        width: fit-content;
+
+        &--owner {
+            background-color: var(--bg-accent);
+            color: #FFF;
+            padding: var(--spacing-1) var(--spacing-2);
+            border-radius: var(--border-radius);
+        }
+
+        &--admin {
+            background-color: #028d02b9;
+            color: #FFF;
+            padding: var(--spacing-1) var(--spacing-2);
+            border-radius: var(--border-radius);
+        }
+
+        &--editor {
+            background-color: #0000ffaa;
+            color: #FFF;
+            padding: var(--spacing-1) var(--spacing-2);
+            border-radius: var(--border-radius);
+        }
+
+        &--viewer {
+            background-color: rgb(242, 140, 45);
+            color: #FFF;
+            padding: var(--spacing-1) var(--spacing-2);
+            border-radius: var(--border-radius);
+
+        }
     }
 }
 
