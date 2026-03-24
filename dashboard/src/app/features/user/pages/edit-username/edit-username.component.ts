@@ -4,7 +4,6 @@ import { IUser } from 'src/app/core/models/interfaces/user.interface';
 import { UsersResponse } from 'src/app/core/models/types/users-response';
 import { UserService } from 'src/app/core/services/user.service';
 import { EditUsernameThead } from './config/edit-username-thead.config';
-import { IFormEditSubmitted } from 'src/app/core/models/interfaces/form-edit-submitted.interface';
 
 @Component({
   selector: 'app-edit-username',
