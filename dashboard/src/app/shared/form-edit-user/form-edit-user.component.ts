@@ -54,8 +54,8 @@ export class FormEditUserComponent {
   }
 
   private applyMode() {
-    
-    if(this.formMode === FormEditMode.PERMISSION) {
+
+    if (this.formMode === FormEditMode.PERMISSION) {
       this.name.disable()
       this.lastname.disable()
       this.username.disable()
@@ -63,10 +63,10 @@ export class FormEditUserComponent {
       this.role.enable()
     }
 
-    if(this.formMode === FormEditMode.USERNAME) {
+    if (this.formMode === FormEditMode.USERNAME) {
       this.name.disable()
       this.lastname.disable()
-      this.username.enable
+      this.username.enable()
       this.password.disable()
       this.role.disable()
     }
@@ -86,26 +86,53 @@ export class FormEditUserComponent {
     const id = this.user.id
     const payload = this.form.value as IUser
 
-    this._userService.editUser(id, payload)
-      .pipe(take(1))
-      .subscribe({
-        next: () => {
-          this.error.hasError = false
-          this.success = true
+    if (this.formMode === FormEditMode.PERMISSION) {
+      const role = this.role.value as string
 
-          setTimeout(() => {
-            this.success = false
-          }, 5000)
-
-          this.form.reset()
-        },
-        error: (err: HttpErrorResponse) => {
-          this.error = {
-            msg: err.error.msg as string,
-            hasError: true
+      this._userService.editRole(id, role)
+        .pipe(take(1))
+        .subscribe({
+          next: () => {
+            this.handleSuccess()
+          },
+          error: (err: HttpErrorResponse) => {
+            this.handleError(err)
           }
-        }
-      })
+        })
+
+        return 
+    } else {
+      this._userService.editUser(id, payload)
+        .pipe(take(1))
+        .subscribe({
+          next: () => {
+            this.handleSuccess()
+          },
+          error: (err: HttpErrorResponse) => {
+            this.handleError(err)
+          }
+        })
+    }
+
+
+  }
+
+  private handleSuccess() {
+    this.error.hasError = false
+    this.success = true
+
+    setTimeout(() => {
+      this.success = false
+    }, 5000)
+
+    this.form.reset()
+  }
+
+  private handleError(err: HttpErrorResponse) {
+    this.error = {
+      msg: err.error.msg as string,
+      hasError: true
+    }
   }
 
   // CONTROLS 

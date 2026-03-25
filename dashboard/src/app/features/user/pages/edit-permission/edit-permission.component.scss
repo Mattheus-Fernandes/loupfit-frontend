@@ -32,6 +32,9 @@
 
     &__list {
         overflow: auto;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-7);
     }
 }
 
@@ -46,6 +49,12 @@
         app-search-bar {
             width: 60%;
         }
+
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-5);
+        }
     }
 }
 
@@ -53,6 +62,10 @@
     .edit-permission {
         app-search-bar {
             width: 50%;
+        }
+
+        &__list {
+            grid-template-columns: repeat(3, 1fr);
         }
     }
 }
