@@ -3,7 +3,6 @@ import { FormEditMode } from 'src/app/core/models/enums/form-edit-mode.enum';
 import { IUser } from 'src/app/core/models/interfaces/user.interface';
 import { UsersResponse } from 'src/app/core/models/types/users-response';
 import { UserService } from 'src/app/core/services/user.service';
-import { EditUsernameThead } from './config/edit-username-thead.config';
 
 @Component({
   selector: 'app-edit-username',
@@ -16,7 +15,6 @@ export class EditUsernameComponent implements OnInit{
 
   protected usersList: UsersResponse = []
   protected usersListFiltered: UsersResponse = []
-  protected readonly thead = EditUsernameThead.thead()
   protected readonly formMode = FormEditMode
 
   public user: IUser = {} as IUser
