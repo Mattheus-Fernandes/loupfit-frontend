@@ -1,0 +1,15 @@
+<div class="card-user">
+    <div class="card-user__content">
+        <div class="card-user__header">
+            <h2 class="card-user__fullname">{{user.name}} {{user.lastname}}</h2>
+            <p class="card-user__username">{{user.username}}</p>
+        </div>
+        <div class="card-user__access">
+            <p class="card-user__label">Acesso:</p>
+            <p class="card-user__role" [class]="roleColor(user.role)">{{user.role | role}}</p>
+        </div>
+        <ng-container *ngIf="hasButton">
+            <app-button [text]="buttonText" variant="primary"></app-button>
+        </ng-container>
+    </div>
+</div>

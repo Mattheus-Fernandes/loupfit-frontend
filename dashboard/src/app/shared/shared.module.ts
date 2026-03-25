@@ -15,6 +15,7 @@ import { ModalComponent } from './modal/modal.component';
 import { TableUsersComponent } from './table-users/table-users.component';
 import { RolePipe } from '../core/pipes/role.pipe';
 import { FormEditUserComponent } from './form-edit-user/form-edit-user.component';
+import { CardUserComponent } from './card-user/card-user.component';
 
 
 
@@ -37,7 +38,8 @@ import { FormEditUserComponent } from './form-edit-user/form-edit-user.component
     ModalComponent,
     TableUsersComponent,
     RolePipe,
-    FormEditUserComponent
+    FormEditUserComponent,
+    CardUserComponent
   ],
   exports: [
     SectionTitleComponent, 
@@ -52,7 +54,8 @@ import { FormEditUserComponent } from './form-edit-user/form-edit-user.component
     ModalComponent,
     TableUsersComponent,
     RolePipe,
-    FormEditUserComponent
+    FormEditUserComponent,
+    CardUserComponent
   ]
 })
 export class SharedModule {}
