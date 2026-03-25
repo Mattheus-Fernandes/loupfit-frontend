@@ -1,7 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { UsersResponse } from 'src/app/core/models/types/users-response';
 import { UserService } from 'src/app/core/services/user.service';
-import { EditPermissionThead } from './config/edit-permission-thead.config';
 import { IUser } from 'src/app/core/models/interfaces/user.interface';
 import { FormEditMode } from 'src/app/core/models/enums/form-edit-mode.enum';
 
@@ -16,7 +15,6 @@ export class EditPermissionComponent implements OnInit {
 
   protected usersList: UsersResponse = []
   protected usersListFiltered: UsersResponse = []
-  protected readonly thead = EditPermissionThead.thead()
   protected readonly FormMode = FormEditMode
 
   public user: IUser = {} as IUser
