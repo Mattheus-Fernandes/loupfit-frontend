@@ -39,6 +39,10 @@ export class UserService {
     return this._http.put<IUser>(`${this._url}/${id}`, { role }, { headers: this._tokenService.getHeaders() })
   }
 
+  editUsername(id: number, username: string): Observable<IUser> {
+    return this._http.put<IUser>(`${this._url}/${id}`, { username }, { headers: this._tokenService.getHeaders() })
+  }
+
   deleteUser(id: number): Observable<IUser> {
     return this._http.delete<IUser>(`${this._url}/${id}`, { headers: this._tokenService.getHeaders() })
   }
