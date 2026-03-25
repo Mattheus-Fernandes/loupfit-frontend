@@ -12,7 +12,6 @@ import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { SuccessMsgComponent } from './success-msg/success-msg.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ModalComponent } from './modal/modal.component';
-import { TableUsersComponent } from './table-users/table-users.component';
 import { RolePipe } from '../core/pipes/role.pipe';
 import { FormEditUserComponent } from './form-edit-user/form-edit-user.component';
 import { CardUserComponent } from './card-user/card-user.component';
@@ -36,7 +35,6 @@ import { CardUserComponent } from './card-user/card-user.component';
     SuccessMsgComponent,
     SearchBarComponent,
     ModalComponent,
-    TableUsersComponent,
     RolePipe,
     FormEditUserComponent,
     CardUserComponent
@@ -52,7 +50,6 @@ import { CardUserComponent } from './card-user/card-user.component';
     SuccessMsgComponent,
     SearchBarComponent,
     ModalComponent,
-    TableUsersComponent,
     RolePipe,
     FormEditUserComponent,
     CardUserComponent
