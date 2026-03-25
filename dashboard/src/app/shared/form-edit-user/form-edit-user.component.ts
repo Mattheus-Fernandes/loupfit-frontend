@@ -100,8 +100,27 @@ export class FormEditUserComponent {
           }
         })
 
-        return 
-    } else {
+      return
+
+    } else if (this.formMode === FormEditMode.USERNAME) {
+      const username = this.username.value as string
+
+      this._userService.editUsername(id, username)
+        .pipe(take(1))
+        .subscribe({
+          next: () => {
+            this.handleSuccess()
+          },
+          error: (err: HttpErrorResponse) => {
+            this.handleError(err)
+          }
+        })
+
+        return
+
+    }
+
+    else {
       this._userService.editUser(id, payload)
         .pipe(take(1))
         .subscribe({
@@ -113,8 +132,6 @@ export class FormEditUserComponent {
           }
         })
     }
-
-
   }
 
   private handleSuccess() {
