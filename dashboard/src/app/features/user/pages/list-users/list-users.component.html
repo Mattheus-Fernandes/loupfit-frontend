@@ -4,8 +4,10 @@
     <ng-container >
         <div *ngIf="usersList.length > 0; else loading" class="list-users__content">
             <app-search-bar (searchValue)="onClick($event)"></app-search-bar>
-            <div class="list-users__table-container">
-                <app-list-users-table [usersList]="usersListFiltered"></app-list-users-table>
+            <div class="list-users__all-users">
+                <ng-container *ngFor="let user of usersListFiltered">
+                    <app-card-user [user]="user"></app-card-user>
+                </ng-container>
             </div>
         </div>
     </ng-container> 
