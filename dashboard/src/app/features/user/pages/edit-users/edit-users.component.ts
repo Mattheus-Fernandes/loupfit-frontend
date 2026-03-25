@@ -2,7 +2,6 @@ import { Component, inject, OnInit } from '@angular/core';
 import { IUser } from 'src/app/core/models/interfaces/user.interface';
 import { UsersResponse } from 'src/app/core/models/types/users-response';
 import { UserService } from 'src/app/core/services/user.service';
-import { EditUserThead } from './config/edit-user-thead.config';
 import { FormEditMode } from 'src/app/core/models/enums/form-edit-mode.enum';
 
 @Component({
@@ -18,7 +17,6 @@ export class EditUsersComponent implements OnInit {
   protected usersListFiltered: UsersResponse = []
   protected user: IUser = {} as IUser
   protected formOpen: boolean = false
-  protected readonly thead = EditUserThead.thead()
   protected readonly formMode = FormEditMode
 
   public formHeader: { title: string, text: string } = {

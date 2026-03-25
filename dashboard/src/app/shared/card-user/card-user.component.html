@@ -9,7 +9,7 @@
             <p class="card-user__role" [class]="roleColor(user.role)">{{user.role | role}}</p>
         </div>
         <ng-container *ngIf="hasButton">
-            <app-button [text]="buttonText" variant="primary"></app-button>
+            <app-button [text]="buttonText" variant="primary" (click)="btnOnClick()"></app-button>
         </ng-container>
     </div>
 </div>

@@ -5,12 +5,14 @@
             <div class="edit-users__workspace">
                 <app-search-bar (searchValue)="onSearch($event)"></app-search-bar>
                     <div class="edit-users__list">
-                        <app-table-users 
-                            [thead]="thead"
-                            [usersList]="usersListFiltered"
-                            columnKey="lastname"
-                            (selectedUser)="selectedUser($event)"
-                        ></app-table-users>
+                        <ng-container *ngFor="let user of usersListFiltered">
+                            <app-card-user 
+                                [user]="user" 
+                                [hasButton]="true" 
+                                buttonText="Editar"
+                                (onClick)="selectedUser(user)"
+                            ></app-card-user>
+                        </ng-container>
                     </div>
                 </div>
        </ng-container>

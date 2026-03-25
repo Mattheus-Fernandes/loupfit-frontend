@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IUser } from 'src/app/core/models/interfaces/user.interface';
 
 @Component({
@@ -10,6 +10,7 @@ export class CardUserComponent {
   @Input() user: IUser = {} as IUser
   @Input() hasButton: boolean = false
   @Input() buttonText: string = ""
+  @Output() onClick = new EventEmitter<void>()
 
   roleColor(role: string) {
 
@@ -29,5 +30,9 @@ export class CardUserComponent {
       default:
         return role;
     }
+  }
+
+  btnOnClick() {
+    this.onClick.emit()
   }
 }
