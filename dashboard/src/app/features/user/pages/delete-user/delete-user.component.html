@@ -8,11 +8,14 @@
             <div class="delete-user__workspace">
                 <app-search-bar (searchValue)="onSearch($event)"></app-search-bar>
                 <div class="delete-user__list">
-                    <app-table-users 
-                        [columns]="columns" 
-                        [usersList]="usersListFiltered"
-                        (selectedUser)="getUserSelected($event)"
-                    ></app-table-users>
+                   <ng-container *ngFor="let user of usersListFiltered">
+                        <app-card-user 
+                            [user]="user" 
+                            [hasButton]="true" 
+                            buttonText="Excluir"
+                            (onClick)="getUserSelected(user)"
+                        ></app-card-user>
+                    </ng-container>
                 </div>
             </div>
         </ng-container>

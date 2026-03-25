@@ -1,11 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { DeleteColumns } from './config/delete-columns.config';
 import { UserService } from 'src/app/core/services/user.service';
 import { UsersResponse } from 'src/app/core/models/types/users-response';
 import { IUser } from 'src/app/core/models/interfaces/user.interface';
 import { HttpErrorResponse } from 'src/app/core/models/types/http-error-response.type';
-import { fromEvent, map, Observable, startWith } from 'rxjs';
-import { TableColumn } from 'src/app/core/models/types/table-column.type';
+import { fromEvent, Observable} from 'rxjs';
 
 @Component({
   selector: 'app-delete-user',
@@ -14,7 +12,6 @@ import { TableColumn } from 'src/app/core/models/types/table-column.type';
 })
 export class DeleteUserComponent implements OnInit {
 
-  protected columns: TableColumn[] = []
   protected usersList: UsersResponse = []
   protected usersListFiltered: UsersResponse = []
 
@@ -31,28 +28,6 @@ export class DeleteUserComponent implements OnInit {
 
   ngOnInit() {
     this.getAllUsers()
-
-
-    this.screenWidth$
-      .pipe(
-        startWith(window.innerWidth),
-        map(() => {
-          const width = window.innerWidth
-          const IS_MOBILE = width < 768
-          const IS_TABLET = width >= 768 && width < 1024
-
-          if(IS_MOBILE) {
-            this.columns = DeleteColumns.mobileColumns()
-          } else if(IS_TABLET) {
-            this.columns = DeleteColumns.tabletColumns()
-          } else {
-            this.columns = DeleteColumns.desktopColumns()
-          }
-        })
-      )
-      .subscribe()
-
-  
   }
 
   private getAllUsers() {
