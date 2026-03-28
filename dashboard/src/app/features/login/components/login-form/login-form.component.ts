@@ -1,8 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ILoginInput } from 'src/app/features/login/models/interfaces/login-input.interface';
+import { FormControl, FormGroup } from '@angular/forms';
 import { HttpErrorResponse } from 'src/app/core/models/types/http-error-response.type';
-import { LoginResponse } from '../../models/types/login-response copy';
+import { LoginResponse } from '../../types/login-response.type';
+import { Login } from '../../types/login.type';
+import { LoginFormModel } from '../../models/login-form.model';
+import { IInput } from 'src/app/core/models/interfaces/input.interface';
+import { LoginInputs } from '../../config/login-inputs.config';
+import { ILoginPayload } from '../../interfaces/login-payload.interface';
+
 
 @Component({
   selector: 'app-login-form',
@@ -11,50 +16,17 @@ import { LoginResponse } from '../../models/types/login-response copy';
 })
 export class LoginFormComponent implements OnInit {
 
-  @Output() subbmitForm = new EventEmitter<LoginResponse>()
+  @Output() subbmitForm = new EventEmitter<ILoginPayload>()
   @Input() httpError!: HttpErrorResponse
 
   private _errorMsg: string = ""
 
-  protected inputUser: ILoginInput = {
-    name: "user",
-    icon: "person",
-    type: "text",
-    placeholder: "Usuário"
-  }
+  protected readonly inputUsername: IInput = LoginInputs.username()
+  protected readonly inputPassword: IInput = LoginInputs.password()
 
-  protected inputPassword: ILoginInput = {
-    name: "password",
-    icon: "lock",
-    type: "password",
-    placeholder: "Senha",
-    suffix: "visibility_off"
-  }
+  public form: FormGroup<Login> = LoginFormModel.createForm()
 
-  protected toggleSuffix(event: boolean) {
-    this.inputPassword.suffix = event ? "visibility_off" : "visibility"
-    this.inputPassword.type = event ? "text" : "password"
-
-  }
-
-  public form!: FormGroup
-
-  constructor(private _fb: FormBuilder) { }
-
-  ngOnInit(): void {
-
-    this.form = this._fb.group({
-      username: ["", Validators.required],
-      password: ["", Validators.required]
-    })
-  }
-
-  get getUser(): FormControl {
-    return this.form.get("username") as FormControl
-  }
-
-  get getPassword(): FormControl {
-    return this.form.get("password") as FormControl
+  ngOnInit() {
   }
 
   get errorMessage(): string {
@@ -69,15 +41,8 @@ export class LoginFormComponent implements OnInit {
     return this.errorMessage || this.httpError?.error.msg as string
   }
 
-  get submittError(): boolean {
-    return this.form.getError("submitError") ? true : false
-  }
 
-  get invalidLoginError(): boolean {
-    return this.httpError?.error.msg != null ? true : false
-  }
-
-  onSubmit(): void {
+  onSubmit() {
 
     this.errorMessage = ""
 
@@ -86,13 +51,35 @@ export class LoginFormComponent implements OnInit {
 
       this.form.setErrors({ submitError: true })
 
-      const hasErrorLogin = this.getUser.errors || this.getPassword
+      const hasErrorLogin = this.username.errors || this.password.errors
 
       if (hasErrorLogin) this.errorMessage = "Preencha todos os campos"
 
       return
     }
 
-    this.subbmitForm.emit(this.form.value)
+    const FORM_VALUE = this.form.value as ILoginPayload
+
+    this.subbmitForm.emit(FORM_VALUE)
+  }
+
+  // CONTROLS
+  get username(): FormControl<string> {
+    return this.form.controls.username
+  }
+
+  get password(): FormControl<string> {
+    return this.form.controls.password
+  }
+
+
+  //VALIDATION
+  hasError(): boolean {
+    const HAS_ERROR_FORM = this.form.getError("submitError")
+    const HAS_ERROR_LOGIN = this.httpError?.error.msg != null ? true : false
+
+    if (HAS_ERROR_FORM || HAS_ERROR_LOGIN) return true
+
+    return false
   }
 }
