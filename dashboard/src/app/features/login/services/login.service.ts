@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginResponse } from '../models/types/login-response copy';
+import { LoginResponse } from '../types/login-response.type';
+import { ILoginPayload } from '../interfaces/login-payload.interface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,7 @@ export class LoginService {
     private _http: HttpClient
   ) { }
 
-  onLogin(login: LoginResponse): Observable<LoginResponse> {
-    return this._http.post<any>(this._url, login)
+  onLogin(login: ILoginPayload): Observable<LoginResponse> {
+    return this._http.post<LoginResponse>(this._url, login)
   }
 }

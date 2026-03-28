@@ -3,9 +3,10 @@ import { LoginService } from './services/login.service';
 import { TokenService } from 'src/app/core/services/token.service';
 import { take } from 'rxjs';
 import { HttpErrorResponse } from 'src/app/core/models/types/http-error-response.type';
-import { LoginResponse } from './models/types/login-response copy';
 import { PreviousPageService } from 'src/app/core/services/previous-page.service';
 import { Router } from '@angular/router';
+import { LoginResponse } from './types/login-response.type';
+import { ILoginPayload } from './interfaces/login-payload.interface';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class LoginComponent {
     this._previousPageService.previousPage()
   }
 
-  onLogin(payload: LoginResponse) {
+  onLogin(payload: ILoginPayload) {
     this._loginService.onLogin(payload)
     .pipe(take(1))
     .subscribe({

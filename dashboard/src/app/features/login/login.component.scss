@@ -31,9 +31,8 @@
     &__main {
         display: flex;
         flex-direction: column-reverse;
-        width: fit-content;
+        width: 90%;
         height: fit-content;
-        box-shadow: 5px 8px 18px -6px black;
     }
 
     &__overlay {

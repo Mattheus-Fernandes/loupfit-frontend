@@ -1,38 +1,31 @@
 <div class="login-form">
-    <div class="login-form__card" [class.login-form__card--error]="submittError || invalidLoginError">
+    <div class="login-form__card" [class.login-form__card--error]="hasError()">
         <div class="login-form__subheader">
             <span class="material-symbols-outlined login-form__icon">
                 login
             </span>
             <h2 class="login-form__title">Entrar na sua conta</h2>
         </div>
-        <form class="login-form__form" [formGroup]="form" (ngSubmit)="onSubmit()">           
-            <p class="login-form__error-msg">{{errorLogin}}</p>
+        <form class="login-form__form" [formGroup]="form" (ngSubmit)="onSubmit()"> 
+            <app-error-msg [msg]="errorLogin"></app-error-msg>          
             <div class="login-form__fields">
-                <div class="login-form__field">       
-                    <app-login-input 
-                        [loginInput]="inputUser" 
-                        [control]="getUser" 
-                        [httpError]="httpError" 
-                        [invalidLogin]="submittError || invalidLoginError"
-                    ></app-login-input>
+                <div class="login-form__field">   
+                    <app-input
+                        [input]="inputUsername"
+                        [control]="username"
+                        [error]="hasError()"
+                    ></app-input>   
                 </div>
                 <div class="login-form__field">
-                    <app-login-input 
-                        [loginInput]="inputPassword" 
-                        [control]="getPassword" 
-                        [httpError]="httpError" 
-                        [invalidLogin]="submittError || invalidLoginError" 
-                        (toggleInput)="toggleSuffix($event)"
-                    ></app-login-input>
+                     <app-input
+                        [input]="inputPassword"
+                        [control]="password"
+                        [error]="hasError()"
+                    ></app-input>   
                 </div>
             </div>
-
             <a href="#" class="login-form__forgot-password">Esqueci minha senha</a>
-
-            <button type="submit" class="login-form__button">
-                Entrar
-            </button>
+            <app-button text="submit" text="Entrar" variant="primary"></app-button>
         </form>
     </div>
 </div>
