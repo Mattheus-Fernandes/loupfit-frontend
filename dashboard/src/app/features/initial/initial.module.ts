@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InitialRoutingModule } from './initial-routing.module';
-import { InitialComponent } from './pages/initial/initial.component';
-import { UiButtonComponent } from './components/ui-button/ui-button.component';
+import { InitialComponent } from './initial.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    InitialRoutingModule
+    InitialRoutingModule,
+    SharedModule
   ],
   declarations: [
-    InitialComponent,
-    UiButtonComponent,
+    InitialComponent
   ],
 })
 export class InitialModule { }
