@@ -1,9 +1,8 @@
 .card-user {
     font-family: var(--font-primary);
     color: var(--color-neutral);
+    background-color: var(--bg-light);
     border-radius: var(--border-radius);
-    border: 1px solid var(--bg-hr);
-    box-shadow: 0px 1px 4px #808080a3;
     transition: transform .2s ease-in-out;
 
     &:active {
