@@ -11,10 +11,8 @@
         height: 100%;
         margin: 0 auto;
         padding: var(--spacing-6);
-        background-color: var(--bg-form);
+        background-color: var(--bg-light);
         font-family: var(--font-primary);
-        border-radius: var(--border-radius);
-        box-shadow: 0 0 20px var(--shadow-primary);
 
         &--error {
             animation: shake .4s ease;
@@ -42,7 +40,7 @@
 
     &__title {
         font-size: var(--font-size-lg);
-        color: var(--color-neutral);
+        color: var(--color-primary);
         margin-bottom: var(--spacing-2);
         font-weight: 400;
     }
@@ -118,8 +116,21 @@
     }
 }
 
+
+@media(min-width:768px) {
+    .login-form {
+        &__title {
+            font-size: var(--font-size-xl);
+        }
+    }
+}
+
 @media (min-width: 1024px) {
     .login-form {
+
+        &__title {
+            font-size: var(--font-size-lg);
+        }
 
         &__button {
             cursor: pointer;

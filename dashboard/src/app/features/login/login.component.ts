@@ -21,13 +21,8 @@ export class LoginComponent {
   constructor(
     private _loginService: LoginService,
     private _tokenService: TokenService,
-    private _previousPageService: PreviousPageService,
     private _router: Router
   ){}
-
-  pageBack() {
-    this._previousPageService.previousPage()
-  }
 
   onLogin(payload: ILoginPayload) {
     this._loginService.onLogin(payload)
