@@ -1,41 +1,30 @@
 .delete-user {
     height: 100%;
     width: 100%;
-    padding: var(--spacing-3);
+    overflow: hidden;
     position: relative;
-    font-family: var(--font-primary);
+    padding: var(--spacing-3);
 
-    &__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+    overflow: hidden;
+
+    &__workspace {
         height: 100%;
         width: 100%;
         display: flex;
         flex-direction: column;
         gap: var(--spacing-4);
         overflow: hidden;
-        transition: filter 1s ease-in-out;
-
-        app-spinner {
-            height: 100%;
-        }
-    }
-
-    &__workspace {
-        height: 100%;
-        width: 100%;
-        background-color: var(--bg-form);
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-6);
-        padding: var(--spacing-4);
-        overflow: hidden;
-        border-radius: var(--border-radius);
     }
 
     &__list {
         overflow: auto;
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-7);
+        gap: var(--spacing-3);
+        border-radius: var(--border-radius);
     }
 
     &__confirm {
@@ -94,15 +83,14 @@
         font-weight: 500;
         font-size: var(--font-size-md);
     }
+
+    app-spinner {
+        height: 100%;
+    }
 }
 
 @media(min-width: 768px) {
     .delete-user {
-        padding: var(--spacing-6);
-
-        &__workspace {
-            padding: var(--spacing-6);
-        }
 
         app-search-bar {
             width: 60%;
@@ -111,7 +99,7 @@
         &__list {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-5);
+            gap: var(--spacing-3);
         }
 
         &__content {
