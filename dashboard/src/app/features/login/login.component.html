@@ -1,9 +1,6 @@
 <section class="login">
     <app-login-header></app-login-header>
     <div class="login__container">
-        <span class="login__button material-symbols-outlined" (click)="pageBack()">
-            keyboard_backspace
-        </span>
         <div class="login__main">
             <app-login-form (subbmitForm)="onLogin($event)" [httpError]="httpError"></app-login-form>
             <div class="login__overlay"></div>
