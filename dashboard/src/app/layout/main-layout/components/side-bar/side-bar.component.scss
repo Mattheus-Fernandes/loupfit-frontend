@@ -9,6 +9,7 @@
     z-index: 10000000;
     transition: all .75s ease;
     box-shadow: 9px 1px 20px 2px var(--shadow-primary);
+    overflow: auto;
 
     &--active {
         left: 0;
@@ -31,8 +32,8 @@
 @media (min-width: 768px) {
     .side-bar {
         padding: var(--spacing-3);
-        width: 250px;
-        max-width: 250px;
+        width: 300px;
+        max-width: 3000px;
 
         &__logo {
             display: none;
@@ -48,13 +49,15 @@
 @media (min-width: 1024px) {
     .side-bar {
         position: static;
-        
+        width: 250px;
+        max-width: 250px;
         padding: var(--spacing-3);
         box-shadow: none;
 
         &__logo {
             display: block;
             width: 60px;
+            border-radius: var(--border-radius);
         }
 
         &__ul {

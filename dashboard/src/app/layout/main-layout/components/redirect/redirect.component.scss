@@ -25,13 +25,19 @@
     }
 }
 
+@media(min-width: 768px) {
+    .redirect {
+        font-size: var(--font-size-xl);
+    }
+}
+
 @media(min-width: 1024px) {
     .redirect {
         font-size: var(--font-size-sm);
         cursor: pointer;
 
         &__icon {
-            font-size: var(--font-size-sm);
+            font-size: var(--font-size-md);
         }
     }
 }
