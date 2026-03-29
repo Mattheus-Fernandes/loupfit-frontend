@@ -25,7 +25,7 @@
         padding: var(--spacing-2);
         color: var(--color-neutral);
         outline: none;
-        border: 1.5px solid var(--color-neutral);
+        border: 1px solid var(--color-neutral);
         border-radius: var(--border-radius);
         transition: all .5s ease-in-out;
 
@@ -36,12 +36,13 @@
         }
 
         &:focus {
-            border: 1.5px solid var(--color-accent);
+            border: 1px solid var(--color-accent);
         }
 
         &:disabled {
-            background-color: #8080803f;
+            background-color: #a3a2a23f;
             cursor: not-allowed;
+            border-color: transparent;
         }
 
         &--error {
