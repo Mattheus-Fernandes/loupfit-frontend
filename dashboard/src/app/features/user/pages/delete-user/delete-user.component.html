@@ -1,28 +1,17 @@
 <section class="delete-user">
-    <div class="delete-user__container">
-        <app-section-title 
-            sectionTitle="Excluir usuário" 
-            sectionText="Selecione o usuário para excluir do dashboard"
-        ></app-section-title>
-        <ng-container *ngIf="usersList.length > 0; else loading">
-            <div class="delete-user__workspace">
-                <app-search-bar (searchValue)="onSearch($event)"></app-search-bar>
-                <div class="delete-user__list">
-                   <ng-container *ngFor="let user of usersListFiltered">
-                        <app-card-user 
-                            [user]="user" 
-                            [hasButton]="true" 
-                            buttonText="Excluir"
-                            (onClick)="getUserSelected(user)"
-                        ></app-card-user>
-                    </ng-container>
-                </div>
-            </div>
-        </ng-container>
-        <ng-template #loading>
-            <app-spinner></app-spinner>
-        </ng-template>
+    <app-section-title sectionTitle="Excluir usuário" sectionText="Selecione o usuário para excluir do dashboard"></app-section-title>
+    <div class="delete-user__workspace" *ngIf="usersList.length > 0; else loading">
+        <app-search-bar (searchValue)="onSearch($event)"></app-search-bar>
+        <div class="delete-user__list">
+            <ng-container *ngFor="let user of usersListFiltered">
+                <app-card-user [user]="user" (onClick)="getUserSelected(user)"></app-card-user>
+            </ng-container>
+        </div>
     </div>
+    <ng-template #loading>
+        <app-spinner></app-spinner>
+    </ng-template>
+
     <ng-container *ngIf="openModal">
         <app-modal>
             <div class="delete-user__confirm">
@@ -58,7 +47,8 @@
                     </ng-container>
                     <ng-template #success>
                         <div class="delete-user__success">
-                            <p class="delete-user__success--text">Usuário <strong class="delete-user__name">{{userDelete.name}}</strong> excluído com sucesso</p>
+                            <p class="delete-user__success--text">Usuário <strong
+                                    class="delete-user__name">{{userDelete.name}}</strong> excluído com sucesso</p>
                             <app-button text="Fechar" (click)="btnCloseModal()"></app-button>
                         </div>
                     </ng-template>
