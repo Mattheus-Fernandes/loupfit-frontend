@@ -15,12 +15,12 @@
     }
 
     &:hover {
-        background-color: var(--bg-form);
+        background-color: var(--bg-light);
         color: var(--color-accent);
     }
 
     &__active {
-        background-color: var(--bg-form);
+        background-color: var(--bg-light);
         color: var(--color-accent);
     }
 }

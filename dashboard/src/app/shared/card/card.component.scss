@@ -4,7 +4,7 @@
     font-family: var(--font-primary);
     overflow: hidden;
     border-radius: var(--border-radius);
-    border: 1.5px solid var(--bg-form);
+    border: 1.5px solid var(--bg-light);
     box-shadow: 1px 1px 2px .5px var(--shadow-primary);
     margin: 0 auto;
 
@@ -15,7 +15,7 @@
         display: flex;
         align-items: flex-start;
         gap: var(--spacing-3);
-        background-color: var(--bg-form);
+        background-color: var(--bg-light);
         padding: var(--spacing-7);
     }
 
