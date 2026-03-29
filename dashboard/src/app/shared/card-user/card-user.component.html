@@ -1,15 +1,17 @@
-<div class="card-user">
+<div class="card-user" (click)="btnOnClick()">
     <div class="card-user__content">
         <div class="card-user__header">
-            <h2 class="card-user__fullname">{{user.name}} {{user.lastname}}</h2>
-            <p class="card-user__username">{{user.username}}</p>
+            <p class="card-user__abbreviation" [class]="roleColor(user.role)">{{abbreviationName(user)}}</p>
+            <div>
+                <h2 class="card-user__fullname">{{user.name}} {{user.lastname}}</h2>
+                <p class="card-user__username">{{user.username}}</p>
+            </div>
         </div>
-        <div class="card-user__access">
-            <p class="card-user__label">Acesso:</p>
-            <p class="card-user__role" [class]="roleColor(user.role)">{{user.role | role}}</p>
+        <div class="card-user__access" [class]="roleColor(user.role)">
+            <span class="material-symbols-outlined card-user__role--icon">
+                {{roleIcon(user.role)}}
+            </span>
+            <p class="card-user__role">{{user.role | role}}</p>
         </div>
-        <ng-container *ngIf="hasButton">
-            <app-button [text]="buttonText" variant="primary" (click)="btnOnClick()"></app-button>
-        </ng-container>
     </div>
 </div>

@@ -12,7 +12,7 @@ export class RolePipe implements PipeTransform {
         return "Proprietário"
 
       case "ADMIN":
-        return "Admin"
+        return "Administrador"
 
       case "EDITOR":
         return "Editor"
