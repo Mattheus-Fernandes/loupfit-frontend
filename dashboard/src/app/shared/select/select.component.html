@@ -1,0 +1,7 @@
+<select name="role" id="role" class="select" [class.select--error]="error" [formControl]="control">
+    <option [ngValue]="null" disabled>-- selecione --</option>
+
+    <ng-container *ngFor="let option of optionsList">
+        <option [ngValue]="option.value">{{option.text}}</option>
+    </ng-container>
+</select>

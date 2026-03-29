@@ -1,0 +1,29 @@
+.login-header {
+    position: relative;
+    width: 100%;
+    background-color: var(--bg-accent);
+
+    display: flex;
+    align-items: center;
+
+    &__button {
+        position: absolute;
+        left: 20px;
+        font-size: 2rem;
+        color: var(--color-secondary);
+    }
+
+    &__logo {
+        width: 120px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .login-header {
+        
+        &__button {
+            display: none;
+        }
+    }
+}

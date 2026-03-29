@@ -1,0 +1,11 @@
+<div class="card" [class.card--redirect]="redirectTo" [routerLink]="card.redirectTo">
+    <div class="card__body">
+        <span class="material-symbols-outlined card__icon">
+            {{card.icon}}
+        </span>
+        <div class="card__texts">
+            <h2 class="card__subtitle">{{card.title}}</h2>
+            <p class="card__text">{{card.text}}</p>
+        </div>
+    </div>
+</div> 

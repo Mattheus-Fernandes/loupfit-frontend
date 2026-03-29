@@ -1,0 +1,64 @@
+.edit-username {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: var(--spacing-3);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+    overflow: hidden;
+
+    &__workspace {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4);
+        overflow: hidden;
+    }
+
+    &__list {
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-3);
+        border-radius: var(--border-radius);
+    }
+
+    app-spinner {
+        height: 100%;
+    }
+}
+
+@media(min-width: 768px) {
+    .edit-username {
+
+        app-search-bar {
+            width: 60%;
+        }
+
+        &__workspace {
+            gap: var(--spacing-6);
+        }
+
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-3);
+        }
+    }
+}
+
+@media(min-width: 1024px) {
+    .edit-username {
+        app-search-bar {
+            width: 50%;
+        }
+
+        &__list {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}

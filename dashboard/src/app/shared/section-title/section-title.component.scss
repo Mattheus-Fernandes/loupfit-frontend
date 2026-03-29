@@ -1,0 +1,53 @@
+.section {
+    font-family: var(--font-primary);
+
+
+    &__title {
+        color: var(--color-primary);
+        font-size: var(--font-size-xl);
+        letter-spacing: .5px;
+        font-weight: 500;
+        width: fit-content;
+    }
+
+    &__text {
+        font-size: var(--font-size-md);
+        margin-bottom: var(--spacing-5);
+        color: var(--color-neutral);
+
+    }
+
+    &__line {
+        height: 1px;
+        width: 100%;
+        background-color: var(--bg-hr);
+    }
+}
+
+@media(min-width: 768px) {
+    .section {
+
+        &__title {
+            letter-spacing: 1px;
+        }
+
+        &__text {
+            font-weight: 400;
+            font-size: var(--font-size-lg);
+            letter-spacing: 1px;
+        }
+    }
+}
+
+@media(min-width: 1024px) {
+    .section {
+
+        &__title {
+            font-size: var(--font-size-lg);
+        }
+
+        &__text {
+            font-size: var(--font-size-md);
+        }
+    }
+}

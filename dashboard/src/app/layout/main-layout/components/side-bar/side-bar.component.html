@@ -1,0 +1,9 @@
+<nav class="side-bar" [class.side-bar--active]="menuOpen">
+    <img src="/assets/logo-loupfit.jpeg" alt="logo-loupfit" class="side-bar__logo">
+    <ul class="side-bar__ul">
+        <ng-container *ngFor="let redirect of listRedirect">
+            <app-redirect [redirectInfo]="redirect"></app-redirect>
+        </ng-container>
+        <app-redirect></app-redirect>
+    </ul>
+</nav>

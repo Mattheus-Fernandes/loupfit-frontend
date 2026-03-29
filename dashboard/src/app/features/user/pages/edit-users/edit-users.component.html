@@ -1,0 +1,22 @@
+<section class="edit-users">
+    <app-section-title sectionTitle="Editar Usuários" sectionText="Selecione o usuário para editar"></app-section-title>
+
+    <div class="edit-users__workspace" *ngIf="usersList.length > 0; else loading">
+        <app-search-bar (searchValue)="onSearch($event)"></app-search-bar>
+        <div class="edit-users__list">
+            <ng-container *ngFor="let user of usersListFiltered">
+                <app-card-user [user]="user" (onClick)="selectedUser(user)"></app-card-user>
+            </ng-container>
+        </div>
+    </div>
+
+    <ng-template #loading>
+        <app-spinner></app-spinner>
+    </ng-template>
+
+
+    <app-modal *ngIf="formOpen">
+        <app-form-edit-user [formTitle]="formHeader.title" [formText]="formHeader.text" [formMode]="formMode.EDIT"
+            [user]="user" (closeForm)="closeForm($event)"></app-form-edit-user>
+    </app-modal>
+</section>

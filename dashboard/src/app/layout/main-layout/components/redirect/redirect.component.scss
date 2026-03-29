@@ -1,0 +1,43 @@
+.redirect {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    color: var(--color-secondary);        
+    font-size: var(--font-size-md);
+    transition: all .75s;
+    padding: var(--spacing-2);
+    border-radius: var(--border-radius);
+
+    &__text {
+        font-family: var(--font-primary);
+        letter-spacing: .5px;
+    }
+
+    &:hover {
+        background-color: var(--bg-light);
+        color: var(--color-accent);
+    }
+
+    &__active {
+        background-color: var(--bg-light);
+        color: var(--color-accent);
+    }
+}
+
+@media(min-width: 768px) {
+    .redirect {
+        font-size: var(--font-size-xl);
+    }
+}
+
+@media(min-width: 1024px) {
+    .redirect {
+        font-size: var(--font-size-sm);
+        cursor: pointer;
+
+        &__icon {
+            font-size: var(--font-size-md);
+        }
+    }
+}
