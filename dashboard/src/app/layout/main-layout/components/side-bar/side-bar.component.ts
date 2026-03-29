@@ -10,7 +10,6 @@ export class SideBarComponent {
   @Input() menuOpen: boolean = false
 
   protected listRedirect: RedirectList = [
-    { icon: "dashboard", path: "overview", text: "Visão geral" },
     { icon: "person_shield", path: "user", text: "Usuários" },
     { icon: "group", path: "customer", text: "Clientes" },
     { icon: "home_work", path: "asset", text: "Equipamentos" },
