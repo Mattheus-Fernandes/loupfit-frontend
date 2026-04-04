@@ -11,7 +11,8 @@ const routes: Routes = [
     children: [
       { path: "", redirectTo: "user", pathMatch: "full" },
       { path: "user", loadChildren: () => import("../../features/user/user.module").then(m => m.UserModule) },
-      { path: "customer", loadChildren: () => import("../../features/customer/customer.module").then(m => m.CustomerModule) }
+      { path: "customer", loadChildren: () => import("../../features/customer/customer.module").then(m => m.CustomerModule) },
+      { path: "asset", loadChildren: () => import("../../features/assets/assets.module").then(m => m.AssetsModule) }
     ]
   }
 ];
