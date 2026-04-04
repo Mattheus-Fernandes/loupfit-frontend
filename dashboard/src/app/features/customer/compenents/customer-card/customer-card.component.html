@@ -1,0 +1,44 @@
+<div class="customer-card">
+    <div class="customer-card__content">
+        <div class="customer-card__header">
+            <p class="customer-card__abbreviation" [class]="colorGender()">{{abbreviation}}</p>
+            <div>
+                <h2 class="customer-card__fullname">{{customer.name}} {{customer.lastname}}</h2>
+                <p class="customer-card__username">{{customer.username}}</p>
+                <p class="customer-card__gender" [class]="colorGender()">{{customer.gender | gender}}</p>
+            </div>
+        </div>
+        <div class="customer-card__body">
+            <div class="customer-card__fields">
+                <app-icon-card icon="mail"></app-icon-card>
+                <div>
+                    <span class="customer-card__label">E-mail</span>
+                    <p class="customer-card__text">{{customer.email}}</p>
+                </div>
+            </div>
+            <div class="customer-card__fields">
+                <app-icon-card icon="mobile_2"></app-icon-card>
+                <div>
+                    <span class="customer-card__label">Celular</span>
+                    <p class="customer-card__text">{{customer.phone| phone}}</p>
+                </div>
+            </div>
+            <div class="customer-card__fields">
+                <app-icon-card icon="badge"></app-icon-card>
+                <div>
+                    <span class="customer-card__label">CPF</span>
+                    <p class="customer-card__text">{{customer.cpf| cpf}}</p>
+                </div>
+            </div>
+            <div class="customer-card__address">
+                <app-icon-card icon="location_on"></app-icon-card>
+                <div>
+                    <span class="customer-card__label">Endereço</span>
+                    <p class="customer-card__text">{{customer.street}}, {{customer.number}}</p>
+                    <p class="customer-card__text">{{customer.neighbour}}, {{customer.city}}.</p>
+                    <p class="customer-card__text">{{customer.uf}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

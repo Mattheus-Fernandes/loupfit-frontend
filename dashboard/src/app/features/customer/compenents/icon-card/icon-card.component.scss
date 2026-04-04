@@ -1,0 +1,19 @@
+.icon-card {
+    font-size: var(--font-size-xl);
+    color: #696c69b9;
+    background-color: #e0e0e0;
+    padding: 3px;
+    border-radius: var(--border-radius);
+}
+
+@media(min-width: 768px) {
+    .icon-card {
+        font-size: 1.8rem;
+    }
+}
+
+@media(min-width: 1024px) {
+    .icon-card {
+        font-size: var(--font-size-lg);
+    }
+}

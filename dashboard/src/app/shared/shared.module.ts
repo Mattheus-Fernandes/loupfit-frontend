@@ -15,6 +15,7 @@ import { ModalComponent } from './modal/modal.component';
 import { RolePipe } from '../core/pipes/role.pipe';
 import { FormEditUserComponent } from './form-edit-user/form-edit-user.component';
 import { CardUserComponent } from './card-user/card-user.component';
+import { NotFoundMsgComponent } from './not-found-msg/not-found-msg.component';
 
 
 
@@ -37,7 +38,8 @@ import { CardUserComponent } from './card-user/card-user.component';
     ModalComponent,
     RolePipe,
     FormEditUserComponent,
-    CardUserComponent
+    CardUserComponent,
+    NotFoundMsgComponent
   ],
   exports: [
     SectionTitleComponent, 
@@ -52,7 +54,8 @@ import { CardUserComponent } from './card-user/card-user.component';
     ModalComponent,
     RolePipe,
     FormEditUserComponent,
-    CardUserComponent
+    CardUserComponent,
+    NotFoundMsgComponent
   ]
 })
 export class SharedModule {}
