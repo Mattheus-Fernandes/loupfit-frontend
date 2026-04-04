@@ -1,0 +1,10 @@
+<section class="assets">
+   <app-section-title sectionTitle="Ações de Equipamento" sectionText="Gerencie as ações dos equipamentos"></app-section-title>
+   <div class="assets__cards">
+       <ng-container *ngFor="let card of cardList">
+         <div>
+            <app-card [card]="card"></app-card>
+         </div>
+      </ng-container>
+   </div>
+</section>
