@@ -1,0 +1,29 @@
+:host {
+    display: block;
+    height: 100%;
+}
+
+.not-found {
+    height: 100%;
+    width: 100%;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-md);
+    color: var(--color-neutral);
+    letter-spacing: 1px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media(min-width: 768px) {
+    .not-found {
+        font-size: var(--font-size-lg);
+    }
+}
+
+@media(min-width: 1024px) {
+    .not-found {
+        font-size: var(--font-size-md);
+    }
+}
