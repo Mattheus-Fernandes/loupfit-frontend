@@ -1,6 +1,12 @@
-<section>
-    <div>
-         <app-section-title sectionTitle="Ações cliente"></app-section-title>
-         <router-outlet></router-outlet>
-    </div>
- </section>
+<section class="customer">
+     <app-section-title sectionTitle="Lista de Clientes" sectionText="Visualização de clientes cadastrados na loja"></app-section-title>
+
+     <app-search-bar (searchValue)="onSearch($event)"></app-search-bar>
+     
+     <div class="customer__content">
+          <ng-container *ngFor="let customer of customersListFiltered">
+               <app-customer-card [customer]="customer"></app-customer-card>
+          </ng-container>
+     </div>
+     <app-not-found-msg *ngIf="customersListFiltered.length < 1 " [msg]="notFoundCustomer"></app-not-found-msg>
+</section>
