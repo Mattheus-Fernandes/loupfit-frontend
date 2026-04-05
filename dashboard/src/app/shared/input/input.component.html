@@ -10,6 +10,10 @@
         [placeholder]="input.placeholder" 
         [formControl]="control"
         autocomplete="off"
+        [mask]="mask"
+        [prefix]="prefix"
+        [thousandSeparator]="thousandSeparator"
+        [decimalMarker]="decimalMarker"
     />  
     <ng-container *ngIf="input.suffix">
         <span class="material-symbols-outlined input__suffix" (click)="changeSuffix()">

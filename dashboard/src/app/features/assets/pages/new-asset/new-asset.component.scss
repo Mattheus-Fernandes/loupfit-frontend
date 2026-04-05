@@ -1,0 +1,40 @@
+.new-asset {
+    height: 100%;
+    width: 100%;
+    padding: var(--spacing-3);
+    overflow: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+
+    &__form {
+        background-color: var(--bg-light);
+        width: 100%;
+        padding: var(--spacing-3);
+        border-radius: var(--border-radius);
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-2);
+    }
+
+    &__fields,
+    &__left,
+    &__right {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-3);
+    }
+
+    &__actions {
+        margin-top: var(--spacing-4);
+
+        display: flex;
+        gap: var(--spacing-3);
+
+        app-button {
+            width: 100%;
+        }
+    }
+}
