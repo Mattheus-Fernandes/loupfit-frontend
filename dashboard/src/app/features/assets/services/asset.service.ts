@@ -1,0 +1,19 @@
+import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { TokenService } from 'src/app/core/services/token.service';
+import { Observable } from 'rxjs';
+import { IAsset } from '../models/interfaces/asset.interface';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AssetService {
+  private readonly _url = "http://localhost:8001/v1/assets"
+  private readonly _http = inject(HttpClient)
+  private readonly _tokenService = inject(TokenService)
+
+  registerAsset(payload: IAsset): Observable<IAsset> {
+    return this._http.post<IAsset>(this._url, payload, { headers: this._tokenService.getHeaders() })
+  }
+
+}
