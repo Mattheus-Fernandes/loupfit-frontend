@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 registerLocaleData(localePt, "pt-BR")
 
@@ -17,11 +18,13 @@ registerLocaleData(localePt, "pt-BR")
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskDirective
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "pt-BR" },
-    { provide: DEFAULT_CURRENCY_CODE, useValue: "BRL" }
+    { provide: DEFAULT_CURRENCY_CODE, useValue: "BRL" },
+    provideNgxMask()
   ],
   bootstrap: [AppComponent]
 })
