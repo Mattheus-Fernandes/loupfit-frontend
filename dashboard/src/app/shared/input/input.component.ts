@@ -11,6 +11,10 @@ export class InputComponent {
   @Input() input: IInput = {} as IInput
   @Input() control!: FormControl
   @Input() error: boolean = false
+  @Input() mask: string = ""
+  @Input() prefix: string = ""
+  @Input() thousandSeparator: string = ""
+  @Input() decimalMarker: any = ""
 
   @Output() toggleInput = new EventEmitter<boolean>()
 
