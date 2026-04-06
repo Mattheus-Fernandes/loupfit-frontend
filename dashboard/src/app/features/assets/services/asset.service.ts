@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TokenService } from 'src/app/core/services/token.service';
-import { map, Observable } from 'rxjs';
+import { delay, map, Observable } from 'rxjs';
 import { IAsset } from '../models/interfaces/asset.interface';
 import { AssetResponse } from '../models/types/asset-response.type';
 
@@ -20,7 +20,8 @@ export class AssetService {
   getAllAssets(): Observable<AssetResponse> {
     return this._http.get<AssetResponse>(this._url, {headers: this._tokenService.getHeaders()}) 
             .pipe(
-              map((assets) => assets.sort((a, b) => a.name.localeCompare(b.name)))
+              map((assets) => assets.sort((a, b) => a.name.localeCompare(b.name))),
+              delay(1000)
             )
   }
 
