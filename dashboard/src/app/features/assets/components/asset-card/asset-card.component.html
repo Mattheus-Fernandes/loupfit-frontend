@@ -1,0 +1,30 @@
+<div class="asset-card" (click)="onClick()">
+     <h2 class="asset-card__name">{{asset.name}}</h2>
+     <div class="asset-card__fields">
+          <div class="asset-card__field">
+               <span class="asset-card__label">Quantidade</span>
+               <p class="asset-card__text">{{asset.quantity}}</p>
+          </div>
+          <div class="asset-card__field">
+               <span class="asset-card__label">Valor de custo</span>
+               <p class="asset-card__text">{{asset.costValue | currency}}</p>
+          </div>
+     </div>
+     <div class="asset-card__fields">
+          <div class="asset-card__field">
+               <span class="asset-card__label">Local da compra</span>
+               <p class="asset-card__text">{{asset.placePurchase}}</p>
+          </div>
+          <div class="asset-card__field">
+               <span class="asset-card__label">Criado por</span>
+               <p class="asset-card__text asset-card__createdBy" [class]="createdByColor(asset.createdByRole)">{{asset.createdBy}}</p>
+          </div>
+     </div>
+      <div class="asset-card__field">
+          <span class="asset-card__label">Descrição</span>
+          <span class="material-symbols-outlined asset-card__icon" (click)="btnDescription()">
+               {{icon}}
+          </span>
+          <p class="asset-card__text asset-card__description" [class]="isHidden ? 'asset-card__description--visible' : 'asset-card__description--hidden'">{{asset.description}}</p>
+     </div>
+</div>
