@@ -1,0 +1,10 @@
+<section class="all-assets">
+   <app-section-title sectionTitle="Equipamentos" sectionText="Acompanhe todos os equipamentos registrados no sistema"></app-section-title>
+   <ng-container *ngIf="assetsListFiltered.length > 0; else loading">
+      <app-search-bar (searchValue)="onSearch($event)"></app-search-bar>
+      <app-assets-list [assetsList]="assetsListFiltered"></app-assets-list>
+   </ng-container>
+   <ng-template #loading>
+      <app-spinner></app-spinner>
+   </ng-template>
+</section>

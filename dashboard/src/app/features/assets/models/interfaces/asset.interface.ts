@@ -5,4 +5,5 @@ export interface IAsset {
     costValue: number,
     placePurchase: string,
     createdBy?: string
+    createdByRole?: string
 }

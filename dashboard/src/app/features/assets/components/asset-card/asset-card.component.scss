@@ -1,0 +1,126 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+.asset-card {
+    font-family: var(--font-primary);
+    color: var(--color-neutral);
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-3);
+    width: 100%;
+    overflow: visible;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+
+    &__fields {
+        display: flex;
+    }
+
+    &__field {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+    }
+
+    &__name {
+        font-weight: 400;
+        font-size: var(--font-size-lg);
+        color: var(--color-primary);
+    }
+
+    &__label {
+        display: block;
+        font-size: var(--font-size-sm);
+    }
+
+    &__text {
+        font-size: var(--font-size-md);
+        color: var(--color-primary);
+    }
+
+    &__description {
+        display: none;
+        transition: all 15s ease-in-out;
+        background-color: #f6e79f;
+        color: var(--color-primary);
+        padding: var(--spacing-1);
+        border-radius: var(--border-radius);
+        max-height: 100px;
+        height: fit-content;
+        overflow: auto;
+        
+        &--visible {
+            z-index: 2;
+            display: block;
+            position: absolute;
+            bottom: 60%;
+            left: 5%;
+        }
+
+        &--hidden {
+            display: none;
+        }
+    }
+
+    &__icon {
+        width: fit-content;
+    }
+
+    &__createdBy {
+        width: fit-content;
+        padding: var(--spacing-1) var(--spacing-2);
+        border-radius: var(--border-radius);
+
+        &--owner {
+            background-color: #ea9fc336;
+            color: #D20567;
+        }
+
+        &--admin {
+            background-color: #99ec9944;
+            color: #058805;
+        }
+
+        &--editor {
+            background-color: #b9b9f559;
+            color: #0000ffaa;
+        }
+
+        &--viewer {
+            background-color: #fbd89459;
+            color: rgb(246, 117, 18);
+        }
+    }
+
+}
+
+
+@media(min-width: 1024px) {
+    .asset-card {
+        gap: 0;
+
+        &__name {
+            font-size: var(--font-size-md);
+        }
+
+        &__label {
+            font-size: var(--font-size-xs)
+        }
+
+        &__text {
+            font-size: var(--font-size-sm);
+        }
+
+        &__icon {
+            cursor: pointer;
+            user-select: none;
+        }
+
+    }
+}

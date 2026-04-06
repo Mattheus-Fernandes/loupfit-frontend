@@ -27,6 +27,10 @@ export class UserService {
       )
   }
 
+  getUserByUsername(username: string): Observable<IUser> {
+    return this._http.get<IUser>(`${this._url}/search`, { headers: this._tokenService.getHeaders(), params: { username } })
+  }
+
   registerUser(payload: IUser): Observable<IUser> {
     return this._http.post<IUser>(this._url, payload, { headers: this._tokenService.getHeaders() })
   }

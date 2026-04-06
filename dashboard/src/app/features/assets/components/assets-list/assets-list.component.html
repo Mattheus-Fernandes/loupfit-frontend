@@ -1,0 +1,5 @@
+<div class="assets-list">
+    <ng-container *ngFor="let asset of assetsList">
+        <app-asset-card [asset]="asset" (cardClick)="onCardClick(asset)"></app-asset-card>
+    </ng-container>
+</div>
