@@ -25,4 +25,8 @@ export class AssetService {
             )
   }
 
+  getAssetByUsername(username: string): Observable<AssetResponse> {
+    return this._http.get<AssetResponse>(`${this._url}/by-username`, { headers: this._tokenService.getHeaders(), params: { username } })
+  }
+
 }
