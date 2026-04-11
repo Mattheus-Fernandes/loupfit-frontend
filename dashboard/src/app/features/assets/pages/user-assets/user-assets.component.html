@@ -1,0 +1,25 @@
+<section class="user-assets">
+   <app-section-title sectionTitle="Ativos do usuário" sectionText="Consulte os equipamentos vinculados a um usuário"></app-section-title>
+
+   <ng-container *ngIf="listUsers.length > 0; else loading">
+      <div class="user-assets__search">
+         <select class="user-assets__select" name="user" [formControl]="control">
+            <option value="" disabled selected>Selecione um usuário</option>
+            <option [value]="user.username" *ngFor="let user of listUsers">
+               {{user.username}}
+            </option>
+         </select>
+         <app-button variant="primary" text="Buscar" type="button" (click)="onSearch()"></app-button>
+      </div>
+
+      <app-assets-list *ngIf="listAssets.length > 0" [assetsList]="listAssets" ></app-assets-list>
+
+      <app-spinner *ngIf="isLoading"></app-spinner>
+
+      <app-not-found-msg *ngIf="listAssets.length <= 0 && !isLoading" msg="Nenhum produto registrado"></app-not-found-msg>
+   </ng-container>
+
+   <ng-template #loading>
+      <app-spinner></app-spinner>
+   </ng-template>
+</section>
