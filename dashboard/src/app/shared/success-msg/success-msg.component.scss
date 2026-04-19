@@ -16,12 +16,6 @@
     }
 }
 
-@media(min-width: 768px) {
-    .success-msg {
-        font-size: var(--font-size-lg);
-    }
-}
-
 @media(min-width: 1024px) {
     .success-msg {
         font-size: var(--font-size-sm);

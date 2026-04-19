@@ -16,12 +16,6 @@
     }
 }
 
-@media(min-width: 768px) {
-    .error-msg {
-        font-size: var(--font-size-lg);
-    }
-}
-
 @media(min-width: 1024px) {
     .error-msg {
         font-size: var(--font-size-sm);
