@@ -1,0 +1,35 @@
+<div class="delete-user">
+    <ng-container *ngIf="!success; else done">
+        <h2 class="delete-user__title">Tem certeza que deseja excluir este usuário?</h2>
+        <div class="delete-user__left">
+            <div class="delete-user__field">
+                <span class="delete-user__label">Nome:</span>
+                <p class="delete-user__text">{{user.name}}</p>
+            </div>
+            <div class="delete-user__field">
+                <span class="delete-user__label">Sobrenome:</span>
+                <p class="delete-user__text">{{user.lastname}}</p>
+            </div>
+        </div>
+        <div class="delete-user__right">
+            <div class="delete-user__field">
+                <span class="delete-user__label">Usuário:</span>
+                <p class="delete-user__text">{{user.username}}</p>
+            </div>
+            <div class="delete-user__field">
+                <span class="delete-user__label">Permissão</span>
+                <p class="delete-user__text">{{user.role | role}}</p>
+            </div>
+        </div>
+        <div class="delete-user__action">
+            <app-button text="Cancelar" (click)="btnCancel()"></app-button>
+            <app-button text="Confirmar" variant="primary" (click)="btnConfirm()"></app-button>
+        </div>
+    </ng-container>
+    <ng-template #done>
+        <div class="delete-user__done">
+            <app-success-msg msg="Usuário excluído com sucesso"></app-success-msg>
+            <app-button text="Fechar" (click)="btnCancel()"></app-button>
+        </div>
+    </ng-template>
+</div>

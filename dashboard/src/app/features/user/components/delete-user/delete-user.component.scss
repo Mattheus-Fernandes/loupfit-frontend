@@ -1,0 +1,91 @@
+:host {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-user {
+    width: 100%;
+    background-color: var(--bg-light);
+    padding: var(--spacing-3);
+    border-radius: var(--border-radius);
+    font-family: var(--font-primary);
+
+    &__title {
+        color: var(--color-error);
+        font-size: var(--font-size-lg);
+
+        font-weight: 500;
+        margin-bottom: var(--spacing-2);
+    }
+
+    &__left,
+    &__right {
+        width: 100%;
+        display: flex;
+    }
+
+    &__field {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: var(--spacing-4);
+    }
+
+    &__label {
+        display: block;
+        color: var(--color-neutral);
+        font-size: var(--font-size-sm);
+    }
+
+    &__text {
+        font-size: var(--font-size-md);
+    }
+
+    &__action {
+        display: flex;
+        gap: var(--spacing-3);
+
+        app-button {
+            width: 100%;
+        }
+    }
+
+    &__done {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-4);
+
+        app-button {
+            width: 100%;
+        }
+    }
+}
+
+@media(min-width: 760px) {
+    .delete-user {
+        max-width: 600px;
+
+        &__action {
+            width: 50%;
+        }
+    }
+}
+
+@media(min-width: 1024px) {
+    .delete-user {
+        max-width: 500px;
+
+        &__title {
+            font-size: var(--font-size-md);
+        }
+
+        &__action {
+            width: 40%;
+        }
+    }
+}

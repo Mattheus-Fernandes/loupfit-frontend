@@ -1,10 +1,28 @@
 <section class="user">
-   <app-section-title sectionTitle="Ações do Usuário" sectionText="Gerencie as ações dos usuários"></app-section-title>
-   <div class="user__cards">
-      <ng-container *ngFor="let card of cardList">
-         <div>
-            <app-card [card]="card"></app-card>
-         </div>
-      </ng-container>
-   </div>
+   <ng-container *ngIf="listUsers.length > 0; else loading">
+      <app-page-title title="Gestão de usuários" subtitle="Visualize e gerencie as ações dos usuários "></app-page-title>
+
+      <div class="user__subheader">
+         <app-button-icon icon="person_add" text="Novo usuário" (click)="openNewModal()"></app-button-icon>
+         <app-search-bar (searchValue)="onSearch($event)"></app-search-bar>
+      </div>
+
+      <app-list-users [listUsers]="listUsersFiltered" (selectUser)="onSelected($event)"></app-list-users>
+
+      <app-modal *ngIf="editModal">
+         <app-form-user [title]="title" [action]="action" (close)="closeModal()"
+            (sentForm)="onSuccess()"></app-form-user>
+      </app-modal>
+
+      <app-modal *ngIf="newModal">
+         <app-new-user (close)="closeModal()" (sentForm)="onSuccess()"></app-new-user>
+      </app-modal>
+
+      <app-modal *ngIf="deleteModal">
+         <app-delete-user [user]="user" (close)="closeModal()" (sentConfirmation)="onSuccess()"></app-delete-user>
+      </app-modal>
+   </ng-container>
+   <ng-template #loading>
+      <app-spinner></app-spinner>
+   </ng-template>
 </section>

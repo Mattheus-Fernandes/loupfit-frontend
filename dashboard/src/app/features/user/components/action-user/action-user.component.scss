@@ -1,0 +1,23 @@
+.action-user {
+    color: var(--color-primary);
+    font-size: var(--font-size-xl);
+
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+@media(min-width: 1024px) {
+
+    .action-user {
+        cursor: pointer;
+        font-size: var(--font-size-lg);
+        padding: var(--spacing-2);
+        border-radius: var(--border-radius);
+        transition: background-color .2s ease-in-out;
+
+        &:hover {
+            background-color: var(--bg-hover-neutral);
+        }
+    }
+}

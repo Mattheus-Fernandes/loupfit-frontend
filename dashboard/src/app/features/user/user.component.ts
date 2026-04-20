@@ -1,19 +1,103 @@
-import { Component } from '@angular/core';
-import { ICard } from 'src/app/core/models/interfaces/card.interface';
+import { Component, inject, OnInit } from '@angular/core';
+import { take } from 'rxjs';
+import { UsersResponse } from 'src/app/core/models/types/users-response';
+import { UserService } from 'src/app/core/services/user.service';
+import { IAction } from './interfaces/action.interface';
+import { UserModal } from './types/user-modal.type';
+import { IUser } from 'src/app/core/models/interfaces/user.interface';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
+  private readonly _userService = inject(UserService)
 
-  protected cardList: ICard[] = [
-    { icon: "add", title: "Novo usuário", text: "Criar um novo usuário", redirectTo: "new", currencyCode: false },
-    { icon: "data_loss_prevention", title: "Usuários", text: "Ver todos os usuários", redirectTo: "list", currencyCode: false },
-    { icon: "person_edit", title: "Editar usuário", text: "Modificar dados do usuário", redirectTo: "edit", currencyCode: false },
-    { icon: "security", title: "Atualizar permissão", text: "Alterar nível de acesso", redirectTo: "edit-permission", currencyCode: false },
-    { icon: "alternate_email", title: "Atualizar username", text: "Modificar nome de usuário", redirectTo: "edit-username", currencyCode: false },
-    { icon: "delete", title: "Excluir usuário", text: "Remover usuário do sistema", redirectTo: "delete",currencyCode: false }
-  ]
+  protected listUsers: UsersResponse = []
+  protected listUsersFiltered: UsersResponse = []
+  protected user: IUser = {} as IUser
+
+  public action: IAction = {} as IAction
+  public title: string = ""
+  public currentModal: UserModal = null
+
+  ngOnInit(): void {
+    this.getAllUsers()
+  }
+
+  getAllUsers() {
+    this._userService.getAllUsers()
+      .pipe(take(1))
+      .subscribe(
+        (res: UsersResponse) => {
+          this.listUsers = res
+          this.listUsersFiltered = res
+        }
+      )
+  }
+
+  onSuccess() {
+    this.getAllUsers()
+  }
+
+  openNewModal() {
+    this.currentModal = "new"
+  }
+
+  openDeleteModal() {
+    this.currentModal = "delete"
+  }
+
+  openEditModal() {
+    this.currentModal = "edit"
+  }
+
+  closeModal() {
+    this.currentModal = null
+  }
+
+  onSearch(value: string) {
+    this.listUsersFiltered = this.listUsers.filter((user: IUser) => user.name.toLowerCase().includes(value.toLowerCase()))
+  }
+
+  onSelected(value: IAction) {
+    this.action = value
+    this.title = this.formTitle(value.type)
+    this.user = value.user
+
+    if (value.type === "delete") {
+      this.openDeleteModal()
+    } else {
+      this.openEditModal()
+    }
+  }
+
+  formTitle(type: string): string {
+    switch (type) {
+      case "edit":
+        return "Editar usuário"
+
+      case "permission":
+        return "Alterar permissão"
+
+      case "username":
+        return "Editar usuário"
+
+      default:
+        return type
+    }
+  }
+
+  get editModal(): boolean {
+    return this.currentModal === "edit" ? true : false
+  }
+
+  get newModal(): boolean {
+    return this.currentModal === "new" ? true : false
+  }
+
+  get deleteModal(): boolean {
+    return this.currentModal === "delete" ? true : false
+  }
 }

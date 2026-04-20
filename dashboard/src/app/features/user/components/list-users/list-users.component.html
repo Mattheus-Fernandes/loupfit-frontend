@@ -1,0 +1,5 @@
+<div class="list-users">
+    <ng-container *ngFor="let user of listUsers">
+        <app-card-user [user]="user" (action)="onSelected($event)"></app-card-user>
+    </ng-container>
+</div>
