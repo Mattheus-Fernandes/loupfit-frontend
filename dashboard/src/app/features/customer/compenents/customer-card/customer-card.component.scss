@@ -18,7 +18,7 @@
     }
 
     &__abbreviation {
-        font-size: var(--font-size-xl);
+        font-size: var(--font-size-lg);
         height: 50px;
         width: 50px;
         display: flex;
@@ -31,7 +31,7 @@
     }
 
     &__fullname {
-        font-size: var(--font-size-lg);
+        font-size: var(--font-size-md);
         font-weight: 500;
         color: var(--color-primary);
     }
@@ -102,20 +102,7 @@
             height: 60px;
             width: 60px;
         }
-
-        &__gender {
-            font-size: var(--font-size-md);
-        }
-
-        &__label {
-            font-size: var(--font-size-md);
-        }
-
-        &__text {
-            font-size: 1.2rem;
-        }
     }
-
 }
 
 @media(min-width: 1024px) {
@@ -130,10 +117,16 @@
         &__abbreviation {
             height: 50px;
             width: 50px;
+            font-size: var(--font-size-md);
+        }
+
+        &__fullname,
+        &__username {
+            font-size: var(--font-size-sm);
         }
 
         &__gender {
-            font-size: var(--font-size-sm);
+            font-size: var(--font-size-xs);
         }
 
         &__label {
@@ -141,7 +134,7 @@
         }
 
         &__text {
-            font-size: var(--font-size-md);
+            font-size: var(--font-size-sm);
         }
 
     }
