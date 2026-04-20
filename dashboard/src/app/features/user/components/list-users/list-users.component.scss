@@ -1,0 +1,16 @@
+.list-users {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+@media(min-width: 760px) {
+
+    .list-users {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-2);
+
+    }
+
+}

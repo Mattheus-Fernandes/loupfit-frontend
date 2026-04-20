@@ -1,0 +1,25 @@
+<div class="new-user">
+    <h2 class="new-user__title">Novo usuário</h2>
+    <form class="new-user__form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <app-error-msg *ngIf="error.hasError" [msg]="error.msg"></app-error-msg>
+        <app-success-msg *ngIf="success.subbmited" [msg]="success.msg"></app-success-msg>
+        <div class="new-user__fields">
+            <div class="new-user__form--left">
+                <app-input [input]="inputName" [control]="name" [error]="isInvalid(name)"></app-input>
+                <app-input [input]="inputLastname" [control]="lastname" [error]="isInvalid(lastname)"></app-input>
+            </div>
+            <div class="new-user__form--right">
+                <app-input [input]="inputUsername" [control]="username" [error]="isInvalid(username)"></app-input>
+                <app-input [input]="inputPassword" [control]="password" [error]="isInvalid(password)"></app-input>
+            </div>
+        </div>
+        <div class="new-user__form--roles">
+            <p class="new-user__text">Definir permissão</p>
+            <app-select [optionsList]="roleOptions" [control]="role" [error]="isInvalid(role)"></app-select>
+        </div>
+        <div class="new-user__action">
+            <app-button type="button" text="Cancelar" (click)="btnCancel()"></app-button>
+            <app-button type="submit" text="Salvar" variant="primary"></app-button>
+        </div>
+    </form>
+</div>
