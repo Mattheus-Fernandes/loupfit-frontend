@@ -1,9 +1,9 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { IAsset } from '../../interfaces/asset.interface';
 import { FormControl, FormGroup } from '@angular/forms';
-import { EditAsset } from '../../types/edit-asset.type';
+import { AssetFormControls } from '../../types/asset-form-controls';
 import { AssetModel } from '../../models/asset.model';
-import { EditAssetInputs } from '../../config/edit-asset-inputs.config';
+import { AssetInputs } from '../../config/asset-inputs.config';
 import { isInvalid } from 'src/app/core/config/is-invalid.config';
 import { toNumber } from 'src/app/core/config/to-number.config';
 import { AssetService } from '../../services/asset.service';
@@ -24,12 +24,12 @@ export class EditAssetComponent implements OnInit {
 
   private readonly _assetService = inject(AssetService)
 
-  protected form: FormGroup<EditAsset> = AssetModel.createForm()
-  protected inputName = EditAssetInputs.inputName()
-  protected inputDescription = EditAssetInputs.inputDescription()
-  protected inputQuantity = EditAssetInputs.inputQuantity()
-  protected inputCostValue = EditAssetInputs.inputCostvalue()
-  protected inputPlacePurchase = EditAssetInputs.inputPlacePurchase()
+  protected form: FormGroup<AssetFormControls> = AssetModel.createForm()
+  protected inputName = AssetInputs.inputName()
+  protected inputDescription = AssetInputs.inputDescription()
+  protected inputQuantity = AssetInputs.inputQuantity()
+  protected inputCostValue = AssetInputs.inputCostvalue()
+  protected inputPlacePurchase = AssetInputs.inputPlacePurchase()
 
   public isInvalid = isInvalid
   public toNumber = toNumber

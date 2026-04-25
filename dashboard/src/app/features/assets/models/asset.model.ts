@@ -1,9 +1,9 @@
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { EditAsset } from "../types/edit-asset.type";
+import { AssetFormControls } from "../types/asset-form-controls";
 
 export class AssetModel {
-    static createForm(): FormGroup<EditAsset> {
-        return new FormGroup<EditAsset>({
+    static createForm(): FormGroup<AssetFormControls> {
+        return new FormGroup<AssetFormControls>({
             name: new FormControl('', {
                 nonNullable: true,
                 validators: [Validators.required]

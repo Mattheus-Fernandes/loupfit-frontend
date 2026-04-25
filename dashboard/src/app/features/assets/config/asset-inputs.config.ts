@@ -1,6 +1,6 @@
 import { IInput } from "src/app/core/models/interfaces/input.interface";
 
-export class EditAssetInputs {
+export class AssetInputs {
     static inputName(): IInput {
         return {
             icon: 'box_add',
