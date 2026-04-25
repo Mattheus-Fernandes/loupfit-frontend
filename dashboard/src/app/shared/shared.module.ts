@@ -17,6 +17,7 @@ import { NotFoundMsgComponent } from './not-found-msg/not-found-msg.component';
 import { NgxMaskDirective } from "ngx-mask";
 import { PageTitleComponent } from './page-title/page-title.component';
 import { ButtonIconComponent } from './button-icon/button-icon.component';
+import { IconComponent } from './icon/icon.component';
 
 
 
@@ -41,7 +42,8 @@ import { ButtonIconComponent } from './button-icon/button-icon.component';
     RolePipe,
     NotFoundMsgComponent,
     PageTitleComponent,
-    ButtonIconComponent
+    ButtonIconComponent,
+    IconComponent
   ],
   exports: [
     SectionTitleComponent, 
@@ -57,7 +59,8 @@ import { ButtonIconComponent } from './button-icon/button-icon.component';
     RolePipe,
     NotFoundMsgComponent,
     PageTitleComponent,
-    ButtonIconComponent
+    ButtonIconComponent,
+    IconComponent
   ]
 })
 export class SharedModule {}
