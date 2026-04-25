@@ -1,4 +1,4 @@
-<div class="asset-card" (click)="onClick()">
+<div class="asset-card">
      <h2 class="asset-card__name">{{asset.name}}</h2>
      <div class="asset-card__fields">
           <div class="asset-card__field">
@@ -20,11 +20,15 @@
                <p class="asset-card__text asset-card__createdBy" [class]="createdByColor(asset.createdByRole)">{{asset.createdBy}}</p>
           </div>
      </div>
-      <div class="asset-card__field">
-          <span class="asset-card__label">Descrição</span>
-          <span class="material-symbols-outlined asset-card__icon" (click)="btnDescription()">
-               {{icon}}
-          </span>
-          <p class="asset-card__text asset-card__description" [class]="isHidden ? 'asset-card__description--visible' : 'asset-card__description--hidden'">{{asset.description}}</p>
+     <div class="asset-card__description" [class.asset-card__description--visible]="isHidden">
+          <div class="asset-card__content">
+               <p class="asset-card__label">Descrição</p>
+               <p class="asset-card__content--text">{{asset.description}}</p>
+          </div>
+     </div>
+     <div class="asset-card__action">
+          <app-icon icon="description" (click)="btnDescription()"></app-icon>
+          <app-icon icon="edit_square" (click)="onClick($event, 'edit')"></app-icon>
+          <app-icon icon="delete" (click)="onClick($event, 'delete')"></app-icon>
      </div>
 </div>

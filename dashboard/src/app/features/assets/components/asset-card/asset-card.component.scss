@@ -10,11 +10,12 @@
     border-radius: var(--border-radius);
     padding: var(--spacing-3);
     width: 100%;
-    overflow: visible;
+    position: relative;
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2);
+    gap: var(--spacing-1);
 
     &__fields {
         display: flex;
@@ -25,13 +26,13 @@
         display: flex;
         flex-direction: column;
         position: relative;
-
     }
 
     &__name {
-        font-weight: 400;
-        font-size: var(--font-size-lg);
+        font-weight: 500;
+        font-size: var(--font-size-md);
         color: var(--color-primary);
+        margin-bottom: var(--spacing-1);
     }
 
     &__label {
@@ -45,37 +46,47 @@
     }
 
     &__description {
-        display: none;
-        transition: all 15s ease-in-out;
-        background-color: #f6e79f;
-        color: var(--color-primary);
-        padding: var(--spacing-1);
-        border-radius: var(--border-radius);
-        max-height: 100px;
-        height: fit-content;
+        position: absolute;
+        top: 0;
+        right: -100%;
+        height: 75%;
+        width: 100%;
+        z-index: 2;
         overflow: auto;
-        
-        &--visible {
-            z-index: 2;
-            display: block;
-            position: absolute;
-            bottom: 60%;
-            left: 5%;
-        }
+        transition: all 1s ease;
 
-        &--hidden {
-            display: none;
+        &--visible {
+            right: 0%;
         }
     }
 
-    &__icon {
-        width: fit-content;
+    &__content {
+        height: 100%;
+        width: 100%;
+        background-color: var(--bg-light);
+        padding: var(--spacing-3);
+        overflow: auto;
+
+
+        &--text {
+            font-size: var(--font-size-md);
+            color: var(--color-primary);
+        }
+    }
+
+    &__action {
+        padding: var(--spacing-2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-8);
     }
 
     &__createdBy {
         width: fit-content;
-        padding: var(--spacing-1) var(--spacing-2);
+        padding: 2.5px 9px;
         border-radius: var(--border-radius);
+        background-color: #dcdcdc54;
 
         &--owner {
             background-color: #ea9fc336;
@@ -105,16 +116,19 @@
     .asset-card {
         gap: 0;
 
-        &__name {
-            font-size: var(--font-size-md);
-        }
-
         &__label {
             font-size: var(--font-size-xs)
         }
 
         &__text {
             font-size: var(--font-size-sm);
+        }
+
+        &__content {
+
+            &--text {
+                font-size: var(--font-size-sm);
+            }
         }
 
         &__icon {
