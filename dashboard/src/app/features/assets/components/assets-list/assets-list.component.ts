@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { AssetResponse } from '../../models/types/asset-response.type';
-import { IAsset } from '../../models/interfaces/asset.interface';
+import { AssetResponse } from '../../types/asset-response.type';
+import { IActionCardAsset } from '../../interfaces/action-card-asset.interface';
 
 @Component({
   selector: 'app-assets-list',
@@ -9,10 +9,9 @@ import { IAsset } from '../../models/interfaces/asset.interface';
 })
 export class AssetsListComponent {
   @Input() assetsList: AssetResponse = []
-  @Output() assetSelected = new EventEmitter<IAsset>()
-  @Input() userRole: string = ""
+  @Output() onAction = new EventEmitter<IActionCardAsset>()
 
-  onCardClick(asset: IAsset) {
-    this.assetSelected.emit(asset)
+  onClick(value: IActionCardAsset) {
+    this.onAction.emit({ type: value.type, data: value.data })
   }
 }
