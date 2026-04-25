@@ -1,6 +1,6 @@
 import { FormControl } from "@angular/forms"
 
-export type EditAsset = {
+export type AssetFormControls = {
     name: FormControl<string>,
     description: FormControl<string>,
     quantity: FormControl<number | null>,
