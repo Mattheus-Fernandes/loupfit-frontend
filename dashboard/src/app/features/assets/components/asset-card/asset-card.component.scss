@@ -53,7 +53,7 @@
         width: 100%;
         z-index: 2;
         overflow: auto;
-        transition: all 1s ease;
+        transition: all .65s ease-in-out;
 
         &--visible {
             right: 0%;
