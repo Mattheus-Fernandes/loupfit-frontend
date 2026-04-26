@@ -32,4 +32,8 @@ export class AssetService {
   editAsset(id: string, payload: IAsset): Observable<IAsset> {
     return this._http.put<IAsset>(`${this._url}/${id}`, payload, { headers: this._tokenService.getHeaders() })
   }
+
+  deleteAsset(id: string): Observable<IAsset> {
+    return this._http.delete<IAsset>(`${this._url}/${id}`, { headers: this._tokenService.getHeaders() })
+  }
 }
