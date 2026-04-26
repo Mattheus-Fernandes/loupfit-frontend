@@ -1,0 +1,22 @@
+<div class="new-asset">
+    <h2 class="new-asset__title">Novo equipamento</h2>
+    <app-error-msg *ngIf="error.hasError" [msg]="error.msg"></app-error-msg>
+    <app-success-msg *ngIf="success.subbmited" [msg]="success.msg"></app-success-msg>
+    <form class="new-asset__form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="new-asset__fields">
+            <div class="new-asset__form--left">
+                <app-input [input]="inputName" [control]="name" [error]="isInvalid(name)"></app-input>
+                <app-input [input]="inputDescription" [control]="description" [error]="isInvalid(description)"></app-input>
+                <app-input [input]="inputQuantity" [control]="quantity" [error]="isInvalid(quantity)"></app-input>
+            </div>
+            <div class="new-asset__form--right">
+                <app-input [input]="inputCostValue" [control]="costValue" [error]="isInvalid(costValue)" mask="separator.2" prefix="R$" thousandSeparator="." decimalMarker=","></app-input>
+                <app-input [input]="inputPlacePurchase" [control]="placePurchase" [error]="isInvalid(placePurchase)"></app-input>
+            </div>
+        </div>
+        <div class="new-asset__action">
+            <app-button type="button" text="Cancelar" (click)="onClose()"></app-button>
+            <app-button type="submit" text="Salvar" variant="primary"></app-button>
+        </div>
+    </form>
+</div>

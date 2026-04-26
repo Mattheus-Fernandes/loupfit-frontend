@@ -1,0 +1,21 @@
+<div class="search-filtered">
+    <p class="search-filtered__title">{{title}}</p>
+    <app-icon [icon]="doFilter ? 'close' : 'filter_alt'" (click)="doFilter ? onRemoveFilter() : filter()"></app-icon>
+
+    <app-modal *ngIf="openModal">
+        <div class="search-filtered__apply">
+            <div class="search-filtered__subheader">
+                <p class="search-filtered__text">Filtrar por usuário</p>
+                <app-icon icon="close" (click)="closeModal()"></app-icon>
+            </div>
+            <app-error-msg [msg]="error"></app-error-msg>
+            <select class="search-filtered__select" [class.search-filtered__select--error]="userSelected" [formControl]="userControl">
+                <option value="">-- selecione --</option>
+                <option *ngFor="let username of listUsernames" [value]="username">
+                    {{ username }}
+                </option>
+            </select>
+            <app-button-icon icon="person_check" text="Aplicar" (click)="onApplyFilter()"></app-button-icon>
+        </div>
+    </app-modal>
+</div>

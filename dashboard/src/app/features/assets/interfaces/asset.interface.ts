@@ -1,4 +1,5 @@
 export interface IAsset {
+    id: string,
     name: string,
     description: string,
     quantity: number,

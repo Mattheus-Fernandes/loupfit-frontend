@@ -1,14 +1,14 @@
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { NewAsset } from "./new-asset.type";
+import { AssetFormControls } from "../types/asset-form-controls";
 
-export class NewAssetForm {
-    static createForm(): FormGroup<NewAsset> {
-        return new FormGroup<NewAsset>({
-            name: new FormControl("", {
+export class AssetModel {
+    static createForm(): FormGroup<AssetFormControls> {
+        return new FormGroup<AssetFormControls>({
+            name: new FormControl('', {
                 nonNullable: true,
                 validators: [Validators.required]
             }),
-            description: new FormControl("", {
+            description: new FormControl('', {
                 nonNullable: true,
                 validators: [Validators.required]
             }),
@@ -20,7 +20,7 @@ export class NewAssetForm {
                 nonNullable: true,
                 validators: [Validators.required]
             }),
-            placePurchase: new FormControl("", {
+            placePurchase: new FormControl('', {
                 nonNullable: true,
                 validators: [Validators.required]
             })

@@ -1,7 +1,7 @@
 import { IInput } from "src/app/core/models/interfaces/input.interface";
 
-export class InputsNewAsset {
-    static assetName(): IInput {
+export class AssetInputs {
+    static inputName(): IInput {
         return {
             icon: 'box_add',
             name: 'name',
@@ -10,7 +10,7 @@ export class InputsNewAsset {
         }
     }
 
-    static description(): IInput {
+    static inputDescription(): IInput {
         return {
             icon: 'description',
             name: 'description',
@@ -19,7 +19,7 @@ export class InputsNewAsset {
         }
     }
 
-    static quantity(): IInput {
+    static inputQuantity(): IInput {
         return {
             icon: 'deployed_code',
             name: 'quantity',
@@ -28,7 +28,7 @@ export class InputsNewAsset {
         }
     }
 
-    static costValue(): IInput {
+    static inputCostvalue(): IInput {
         return {
             icon: 'request_quote',
             name: 'costValue',
@@ -37,7 +37,7 @@ export class InputsNewAsset {
         }
     }
 
-    static placePurchase(): IInput {
+    static inputPlacePurchase(): IInput {
         return {
             icon: 'store',
             name: 'placePurchase',

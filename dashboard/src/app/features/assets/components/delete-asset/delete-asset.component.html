@@ -1,0 +1,41 @@
+<div class="delete-asset">
+    <ng-container *ngIf="!success; else deleted">
+        <h2 class="delete-asset__title">Tem certeza que deseja excluir este equipamento?</h2>
+        <div class="delete-asset__fields">
+            <div class="delete-asset__left">
+                <div class="delete-asset__field">
+                    <span class="delete-asset__label">Nome</span>
+                    <p class="delete-asset__text">{{asset.name}}</p>
+                </div>
+                <div class="delete-asset__field">
+                    <span class="delete-asset__label">Quantitdade</span>
+                    <p class="delete-asset__text">{{asset.quantity}}</p>
+                </div>
+                <div class="delete-asset__field">
+                    <span class="delete-asset__label">Valor de custo</span>
+                    <p class="delete-asset__text">{{asset.costValue | currency}}</p>
+                </div>
+            </div>
+            <div class="delete-asset__right">
+                <div class="delete-asset__field">
+                    <span class="delete-asset__label">Local de compra</span>
+                    <p class="delete-asset__text">{{asset.placePurchase}}</p>
+                </div>
+                <div class="delete-asset__field">
+                    <span class="delete-asset__label">Criado por</span>
+                    <p class="delete-asset__text">{{asset.createdBy}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="delete-asset__action">
+            <app-button text="Cancelar" (click)="btnCancel()"></app-button>
+            <app-button text="Confirmar" variant="primary" (click)="btnConfirm()"></app-button>
+        </div>
+    </ng-container>
+    <ng-template #deleted>
+        <div class="delete-asset__deleted">
+            <app-success-msg msg="Equipamento excluído com sucesso"></app-success-msg>
+            <app-button text="Fechar" (click)="btnCancel()"></app-button>
+        </div>
+    </ng-template>
+</div>

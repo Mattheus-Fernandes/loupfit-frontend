@@ -2,7 +2,6 @@
     display: block;
     height: 100%;
     width: 100%;
-    overflow: auto;
 }
 
 .assets-list {
@@ -16,7 +15,6 @@
     .assets-list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-3);
     }
 }
 
